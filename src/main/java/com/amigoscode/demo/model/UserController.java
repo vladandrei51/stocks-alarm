@@ -45,7 +45,7 @@ public class UserController {
         userService.deleteUser(userId);
     }
 
-    @DeleteMapping("{userId}")
+    @DeleteMapping("{alarmId}")
     public void deleteAlarm(@PathVariable("alarmId") UUID alarmId) {
         userService.deleteAlarm(alarmId);
     }
