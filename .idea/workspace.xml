@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="318b5c71-b648-48d1-a189-9d967777f513" name="Default Changelist" comment="Added User/stock/alarm and some AV stuff" />
+    <list default="true" id="318b5c71-b648-48d1-a189-9d967777f513" name="Default Changelist" comment="Added User/stock/alarm and some AV stuff">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V1__CreateStudentTable.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V1__CreateStudentTable.sql" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,7 +51,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="vcs.Subversion" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -100,7 +103,49 @@
       <option name="project" value="LOCAL" />
       <updated>1581950607907</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="fixed bug">
+      <created>1581952418215</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1581952418215</updated>
+    </task>
+    <task id="LOCAL-00004" summary="fixed bug">
+      <created>1581952455387</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1581952455387</updated>
+    </task>
+    <task id="LOCAL-00005" summary="test commit">
+      <created>1581952644157</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1581952644157</updated>
+    </task>
+    <task id="LOCAL-00006" summary="improved logic">
+      <created>1582014488204</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1582014488204</updated>
+    </task>
+    <task id="LOCAL-00007" summary="simplified alphavantage api">
+      <created>1582015084017</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1582015084017</updated>
+    </task>
+    <task id="LOCAL-00008" summary="renamed methods">
+      <created>1582015384248</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1582015384248</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -110,7 +155,12 @@
     </ignored-roots>
     <MESSAGE value="Added User/stock/alarm and some AV stuff" />
     <MESSAGE value="modified 1 table" />
-    <option name="LAST_COMMIT_MESSAGE" value="modified 1 table" />
+    <MESSAGE value="fixed bug" />
+    <MESSAGE value="test commit" />
+    <MESSAGE value="improved logic" />
+    <MESSAGE value="simplified alphavantage api" />
+    <MESSAGE value="renamed methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="renamed methods" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -120,10 +170,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="223" y="72" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.834@0.0.1536.834" timestamp="1581918618421" />
-    <state x="765" y="240" key="#com.intellij.ide.util.MemberChooser" timestamp="1581938043217">
+    <state x="765" y="240" key="#com.intellij.ide.util.MemberChooser" timestamp="1582012936342">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="765" y="240" key="#com.intellij.ide.util.MemberChooser/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1581938043217" />
+    <state x="765" y="240" key="#com.intellij.ide.util.MemberChooser/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582012936342" />
     <state x="782" y="450" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1581927932860">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -138,43 +188,43 @@
     </state>
     <state x="499" y="164" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.834@0.0.1536.834" timestamp="1581917956770" />
     <state x="624" y="206" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1581949563075" />
-    <state x="614" y="119" key="CommitChangelistDialog2" timestamp="1581950607142">
+    <state x="614" y="119" key="CommitChangelistDialog2" timestamp="1582015383417">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="614" y="119" key="CommitChangelistDialog2/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1581950607142" />
+    <state x="614" y="119" key="CommitChangelistDialog2/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582015383417" />
     <state x="740" y="279" key="FileChooserDialogImpl" timestamp="1581951957848">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="740" y="279" key="FileChooserDialogImpl/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1581951957848" />
-    <state width="1877" height="285" key="GridCell.Tab.0.bottom" timestamp="1581951996278">
+    <state width="938" height="285" key="GridCell.Tab.0.bottom" timestamp="1582015016180">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="285" key="GridCell.Tab.0.bottom/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1581951996278" />
-    <state width="1877" height="285" key="GridCell.Tab.0.center" timestamp="1581951996278">
+    <state width="938" height="285" key="GridCell.Tab.0.bottom/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582015016180" />
+    <state width="938" height="285" key="GridCell.Tab.0.center" timestamp="1582015016180">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="285" key="GridCell.Tab.0.center/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1581951996278" />
-    <state width="1877" height="285" key="GridCell.Tab.0.left" timestamp="1581951996278">
+    <state width="938" height="285" key="GridCell.Tab.0.center/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582015016180" />
+    <state width="938" height="285" key="GridCell.Tab.0.left" timestamp="1582015016180">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="285" key="GridCell.Tab.0.left/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1581951996278" />
-    <state width="1877" height="285" key="GridCell.Tab.0.right" timestamp="1581951996278">
+    <state width="938" height="285" key="GridCell.Tab.0.left/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582015016180" />
+    <state width="938" height="285" key="GridCell.Tab.0.right" timestamp="1582015016180">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="285" key="GridCell.Tab.0.right/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1581951996278" />
-    <state x="525" y="166" key="SettingsEditor" timestamp="1581952131549">
+    <state width="938" height="285" key="GridCell.Tab.0.right/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582015016180" />
+    <state x="525" y="166" key="SettingsEditor" timestamp="1581952547385">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="525" y="166" key="SettingsEditor/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1581952131549" />
+    <state x="525" y="166" key="SettingsEditor/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1581952547385" />
     <state x="581" y="303" key="com.intellij.ide.util.TipDialog" timestamp="1581927165850">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="465" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1581917572173" />
     <state x="581" y="303" key="com.intellij.ide.util.TipDialog/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1581927165850" />
-    <state x="769" y="441" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1581951878436">
+    <state x="769" y="441" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1582013535965">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="769" y="441" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1581951878436" />
+    <state x="769" y="441" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582013535965" />
     <state x="651" y="316" key="git4idea.merge.GitPullDialog" timestamp="1581951844540">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
