@@ -71,8 +71,8 @@ public class AlphaVantageAPIConnector {
 
         JSONObject jsonObject = getJSONFromURL(url);
 
-        if (jsonObject != null) {
-            String timeKey = jsonObject.keySet().stream().filter(key -> key.contains(KEY_LIKE)).findFirst().orElseGet(null);
+        if (jsonObject != null && jsonObject.keySet().stream().anyMatch(key -> key.contains(KEY_LIKE))) {
+            String timeKey = jsonObject.keySet().stream().filter(key -> key.contains(KEY_LIKE)).findFirst().get();
             jsonObject = jsonObject.getJSONObject(timeKey);
 
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");

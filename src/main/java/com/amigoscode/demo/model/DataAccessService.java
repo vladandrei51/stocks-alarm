@@ -72,10 +72,10 @@ public class DataAccessService {
                 alarm.getUserId(),
                 alarm.getStockSymbol(),
                 alarm.getTargetAlarmPercentage(),
-                alarm.getCurrentAlarmVariance(),
+                1,
                 alphaVantageAPIConnector.getStockPriceIntraDay(alarm.getStockSymbol(), 5),
                 alphaVantageAPIConnector.getStockPriceIntraDay(alarm.getStockSymbol(), 5),
-                alarm.isActive()
+                true
         );
     }
 
@@ -132,7 +132,7 @@ public class DataAccessService {
                 " alarm.currentAlarmVariance," +
                 " alarm.initialStockPrice," +
                 " alarm.currentStockPrice, " +
-                " alarm.isActive, " +
+                " alarm.isActive " +
                 "FROM alarm " +
                 "WHERE alarm.userId = ?";
         return jdbcTemplate.query(

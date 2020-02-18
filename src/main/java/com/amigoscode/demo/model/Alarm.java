@@ -3,17 +3,19 @@ package com.amigoscode.demo.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
 public class Alarm {
     private final UUID alarmId;
 
-    @NotBlank
+    @NotNull
     private final UUID userId;
 
     @NotBlank
     private final String stockSymbol; //stock identifier
 
+    @NotNull
     private final int targetAlarmPercentage;
 
     private final int currentAlarmVariance;
@@ -25,8 +27,8 @@ public class Alarm {
     private final boolean isActive;
 
     public Alarm(@JsonProperty("alarmId") UUID alarmId,
-                 @JsonProperty("userId") @NotBlank UUID userId,
-                 @JsonProperty("stockSymbol") @NotBlank String stockSymbol,
+                 @JsonProperty("userId") UUID userId,
+                 @JsonProperty("stockSymbol") String stockSymbol,
                  @JsonProperty("targetAlarmPercentage") int targetAlarmPercentage,
                  @JsonProperty("currentAlarmVariance") int currentAlarmVariance,
                  @JsonProperty("initialStockPrice") float initialStockPrice,

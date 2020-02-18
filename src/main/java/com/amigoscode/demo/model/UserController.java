@@ -18,22 +18,22 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/get/users/")
+    @GetMapping("/get/users")
     public List<User> getAllUsers() {
         return userService.getAllUsers();
     }
 
-    @GetMapping("/get/alarms/{id}")
+    @GetMapping("/get/alarm/{id}")
     public List<Alarm> getAllAlarms(@PathVariable UUID id) {
         return userService.getAllAlarms(id);
     }
 
-    @PostMapping(path = "/post/user", consumes = "application/json", produces = "application/json")
+    @PostMapping(path = "/post/user")
     public void addNewUser(@RequestBody @Valid User user) {
         userService.addNewUser(user);
     }
 
-    @PostMapping(path = "/post/alarm", consumes = "application/json", produces = "application/json")
+    @PostMapping(path = "/post/alarm")
     public void addNewAlarm(@RequestBody @Valid Alarm alarm) {
         userService.addNewAlarm(alarm);
     }

@@ -3,8 +3,21 @@
   <component name="ChangeListManager">
     <list default="true" id="318b5c71-b648-48d1-a189-9d967777f513" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/amigoscode/demo/DemoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/amigoscode/demo/DemoApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/amigoscode/demo/alphavantage/apiconnector/AlphaVantageAPIConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/amigoscode/demo/alphavantage/apiconnector/AlphaVantageAPIConnector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/amigoscode/demo/model/Alarm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/amigoscode/demo/model/Alarm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/amigoscode/demo/model/DataAccessService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/amigoscode/demo/model/DataAccessService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/amigoscode/demo/model/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/amigoscode/demo/model/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application-demo.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V1__CreateTables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V1__CreateTables.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application-demo.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/db/migration/V1__CreateStudentTable.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/db/migration/V2__CreateStundetCourseTables.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/db/migration/V3__AddNullContraintToCourseDepartment.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/db/migration/V4__GenderEnum.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/db/migration/V5__DropsStudentGenderCheckConstraint.sql" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,6 +91,9 @@
         <item itemvalue="Application.DemoApplication" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="showServicesTree" value="false" />
   </component>
   <component name="SvnConfiguration">
     <configuration>C:\Users\xavlad\AppData\Roaming\Subversion</configuration>
@@ -153,7 +169,21 @@
       <option name="project" value="LOCAL" />
       <updated>1582017210508</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="user -&gt; users due to syntax in db migration">
+      <created>1582017501023</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1582017501023</updated>
+    </task>
+    <task id="LOCAL-00011" summary="rest annotations">
+      <created>1582019563269</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1582019563269</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -169,7 +199,9 @@
     <MESSAGE value="simplified alphavantage api" />
     <MESSAGE value="renamed methods" />
     <MESSAGE value="adapted db.migrations + delete unnecessary files" />
-    <option name="LAST_COMMIT_MESSAGE" value="adapted db.migrations + delete unnecessary files" />
+    <MESSAGE value="user -&gt; users due to syntax in db migration" />
+    <MESSAGE value="rest annotations" />
+    <option name="LAST_COMMIT_MESSAGE" value="rest annotations" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -179,10 +211,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="223" y="72" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.834@0.0.1536.834" timestamp="1581918618421" />
-    <state x="765" y="240" key="#com.intellij.ide.util.MemberChooser" timestamp="1582012936342">
+    <state x="765" y="240" key="#com.intellij.ide.util.MemberChooser" timestamp="1582017711357">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="765" y="240" key="#com.intellij.ide.util.MemberChooser/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582012936342" />
+    <state x="765" y="240" key="#com.intellij.ide.util.MemberChooser/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582017711357" />
     <state x="782" y="450" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1581927932860">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -197,30 +229,50 @@
     </state>
     <state x="499" y="164" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.834@0.0.1536.834" timestamp="1581917956770" />
     <state x="624" y="206" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1581949563075" />
-    <state x="614" y="119" key="CommitChangelistDialog2" timestamp="1582017209608">
+    <state x="614" y="119" key="CommitChangelistDialog2" timestamp="1582019562373">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="614" y="119" key="CommitChangelistDialog2/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582017209608" />
+    <state x="614" y="119" key="CommitChangelistDialog2/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582019562373" />
     <state x="740" y="279" key="FileChooserDialogImpl" timestamp="1581951957848">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="740" y="279" key="FileChooserDialogImpl/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1581951957848" />
-    <state width="938" height="285" key="GridCell.Tab.0.bottom" timestamp="1582015016180">
+    <state width="1877" height="285" key="GridCell.Tab.0.bottom" timestamp="1582023898017">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="938" height="285" key="GridCell.Tab.0.bottom/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582015016180" />
-    <state width="938" height="285" key="GridCell.Tab.0.center" timestamp="1582015016180">
+    <state width="1877" height="285" key="GridCell.Tab.0.bottom/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582023898017" />
+    <state width="1877" height="285" key="GridCell.Tab.0.center" timestamp="1582023898017">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="938" height="285" key="GridCell.Tab.0.center/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582015016180" />
-    <state width="938" height="285" key="GridCell.Tab.0.left" timestamp="1582015016180">
+    <state width="1877" height="285" key="GridCell.Tab.0.center/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582023898017" />
+    <state width="1877" height="285" key="GridCell.Tab.0.left" timestamp="1582023898017">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="938" height="285" key="GridCell.Tab.0.left/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582015016180" />
-    <state width="938" height="285" key="GridCell.Tab.0.right" timestamp="1582015016180">
+    <state width="1877" height="285" key="GridCell.Tab.0.left/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582023898017" />
+    <state width="1877" height="285" key="GridCell.Tab.0.right" timestamp="1582023898017">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="938" height="285" key="GridCell.Tab.0.right/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582015016180" />
+    <state width="1877" height="285" key="GridCell.Tab.0.right/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582023898017" />
+    <state width="1877" height="352" key="GridCell.Tab.1.bottom" timestamp="1582018624414">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="352" key="GridCell.Tab.1.bottom/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582018624414" />
+    <state width="1877" height="352" key="GridCell.Tab.1.center" timestamp="1582018624414">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="352" key="GridCell.Tab.1.center/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582018624414" />
+    <state width="1877" height="352" key="GridCell.Tab.1.left" timestamp="1582018624414">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="352" key="GridCell.Tab.1.left/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582018624414" />
+    <state width="1877" height="352" key="GridCell.Tab.1.right" timestamp="1582018624414">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="352" key="GridCell.Tab.1.right/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582018624414" />
+    <state x="735" y="235" key="RollbackChangesDialog" timestamp="1582019573939">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="735" y="235" key="RollbackChangesDialog/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582019573939" />
     <state x="525" y="166" key="SettingsEditor" timestamp="1581952547385">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>

@@ -14,6 +14,6 @@ CREATE TABLE IF NOT EXISTS alarm(
     currentAlarmVariance INT,
     initialStockPrice FLOAT,
     currentStockPrice FLOAT,
-    isActive BIT
+    isActive BOOLEAN
 );
 
