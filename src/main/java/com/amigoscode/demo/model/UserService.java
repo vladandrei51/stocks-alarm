@@ -95,7 +95,9 @@ public class UserService {
             dataAccessService.updateAlarmTargetPercentage(alarmId, percentage);
         });
         Optional.of(alarm.getStockSymbol()).ifPresent(stockSymbol -> {
-            dataAccessService.updateAlarmStockSymbol(alarmId, stockSymbol);
+            if (!dataAccessService.isAlertAlreadyAdded(alarm.getUserId(), stockSymbol)) {
+                dataAccessService.updateAlarmStockSymbol(alarmId, stockSymbol);
+            }
         });
     }
 

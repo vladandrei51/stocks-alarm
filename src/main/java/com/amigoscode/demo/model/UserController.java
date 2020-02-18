@@ -43,11 +43,18 @@ public class UserController {
         userService.getStocksFromSearchEndpoint(stockSymbol);
     }
 
-    @PutMapping(path = "/put/{userId}")
+    @PutMapping(path = "/put/user/{userId}")
     public void updateUser(@PathVariable("userId") UUID userId,
                            @RequestBody User user) {
         userService.updateUser(userId, user);
     }
+
+    @PutMapping(path = "/put/alarm/{alarmId}")
+    public void updateAlarm(@PathVariable("alarmId") UUID alarmId,
+                            @RequestBody Alarm alarm) {
+        userService.updateAlarm(alarmId, alarm);
+    }
+
 
     @DeleteMapping("/delete/user/{userId}")
     public void deleteUser(@PathVariable("userId") UUID userId) {

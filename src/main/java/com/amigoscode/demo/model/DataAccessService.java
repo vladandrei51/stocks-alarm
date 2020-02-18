@@ -6,7 +6,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -130,14 +129,6 @@ public class DataAccessService {
         };
     }
 
-    List<Stock> getMonitoredStocks(UUID userId) {
-        List<Stock> stockList = new ArrayList<>();
-        selectAllAlarmsFromUser(userId).forEach(alarm -> {
-            stockList.add(new Stock(alarm.getStockSymbol()));
-        });
-        return null;
-    }
-
     List<Alarm> selectAllAlarmsFromUser(UUID userId) {
         String sql = "" +
                 "SELECT " +
@@ -193,7 +184,7 @@ public class DataAccessService {
                 "UPDATE alarm " +
                 "SET stockSymbol = ?, " +
                 "initialStockPrice = ?, " +
-                "currentStockPrice = ?, " +
+                "currentStockPrice = ? " +
                 "WHERE alarmId = ?";
         return jdbcTemplate.update(sql,
                 stockSymbol,
