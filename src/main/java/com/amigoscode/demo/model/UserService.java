@@ -59,7 +59,9 @@ public class UserService {
     }
 
     void addNewAlarm(Alarm alarm) {
-        addNewAlarm(null, alarm);
+        if (!dataAccessService.isAlertAlreadyAdded(alarm.getUserId(), alarm.getStockSymbol())) {
+            addNewAlarm(null, alarm);
+        }
     }
 
     public void updateUser(UUID userId, User user) {
@@ -82,6 +84,19 @@ public class UserService {
                 .filter(lastName -> !StringUtils.isEmpty(lastName))
                 .map(StringUtils::capitalize)
                 .ifPresent(lastName -> dataAccessService.updateLastName(userId, lastName));
+    }
+
+    public void updateAlarm(UUID alarmId, Alarm alarm) {
+        Optional.of(alarm.isActive()).ifPresent(isActive -> {
+            dataAccessService.updateAlarmActive(alarmId, isActive);
+        });
+
+        Optional.of(alarm.getTargetAlarmPercentage()).ifPresent(percentage -> {
+            dataAccessService.updateAlarmTargetPercentage(alarmId, percentage);
+        });
+        Optional.of(alarm.getStockSymbol()).ifPresent(stockSymbol -> {
+            dataAccessService.updateAlarmStockSymbol(alarmId, stockSymbol);
+        });
     }
 
     void deleteUser(UUID userId) {

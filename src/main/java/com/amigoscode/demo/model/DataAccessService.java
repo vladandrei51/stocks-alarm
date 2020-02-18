@@ -22,6 +22,22 @@ public class DataAccessService {
         alphaVantageAPIConnector = new AlphaVantageAPIConnector();
     }
 
+    boolean isAlertAlreadyAdded(UUID userId, String stockSymbol) {
+
+        String sql = "" +
+                "SELECT EXISTS ( SELECT * " +
+                "FROM alarm " +
+                "WHERE userId = ? " +
+                "AND stockSymbol = ? )";
+
+        return jdbcTemplate.queryForObject(
+                sql,
+                new Object[]{userId, stockSymbol},
+                (resultSet, i) -> resultSet.getBoolean(1)
+        );
+
+    }
+
     List<User> selectAllUsers() {
         String sql = "" +
                 "SELECT " +
@@ -154,6 +170,36 @@ public class DataAccessService {
                         resultSet.getFloat("currentStockPrice"),
                         resultSet.getBoolean("isActive")
                 );
+    }
+
+    int updateAlarmActive(UUID alarmId, boolean isActive) {
+        String sql = "" +
+                "UPDATE alarm " +
+                "SET isActive = ? " +
+                "WHERE alarmId = ?";
+        return jdbcTemplate.update(sql, isActive, alarmId);
+    }
+
+    int updateAlarmTargetPercentage(UUID alarmId, Integer percentage) {
+        String sql = "" +
+                "UPDATE alarm " +
+                "SET targetAlarmPercentage = ? " +
+                "WHERE alarmId = ?";
+        return jdbcTemplate.update(sql, percentage, alarmId);
+    }
+
+    int updateAlarmStockSymbol(UUID alarmId, String stockSymbol) {
+        String sql = "" +
+                "UPDATE alarm " +
+                "SET stockSymbol = ?, " +
+                "initialStockPrice = ?, " +
+                "currentStockPrice = ?, " +
+                "WHERE alarmId = ?";
+        return jdbcTemplate.update(sql,
+                stockSymbol,
+                alphaVantageAPIConnector.getStockPriceIntraDay(stockSymbol, 5),
+                alphaVantageAPIConnector.getStockPriceIntraDay(stockSymbol, 5),
+                alarmId);
     }
 
     int updateEmail(UUID userId, String email) {
