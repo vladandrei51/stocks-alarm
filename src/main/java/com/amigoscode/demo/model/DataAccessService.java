@@ -30,14 +30,14 @@ public class DataAccessService {
                 " lastName, " +
                 " email, " +
                 " password " +
-                "FROM user";
+                "FROM users";
 
         return jdbcTemplate.query(sql, mapUserFromDb());
     }
 
     int insertUser(UUID userId, User user) {
         String sql = "" +
-                "INSERT INTO user (" +
+                "INSERT INTO users (" +
                 " userId, " +
                 " firstName, " +
                 " lastName, " +
@@ -84,7 +84,7 @@ public class DataAccessService {
         String sql = "" +
                 "SELECT EXISTS ( " +
                 " SELECT 1 " +
-                " FROM user " +
+                " FROM users " +
                 " WHERE email = ?" +
                 ")";
         return jdbcTemplate.queryForObject(
@@ -158,7 +158,7 @@ public class DataAccessService {
 
     int updateEmail(UUID userId, String email) {
         String sql = "" +
-                "UPDATE user " +
+                "UPDATE users " +
                 "SET email = ? " +
                 "WHERE userId = ?";
         return jdbcTemplate.update(sql, email, userId);
@@ -166,7 +166,7 @@ public class DataAccessService {
 
     int updateFirstName(UUID userId, String firstName) {
         String sql = "" +
-                "UPDATE user " +
+                "UPDATE users " +
                 "SET first_name = ? " +
                 "WHERE userId = ?";
         return jdbcTemplate.update(sql, firstName, userId);
@@ -174,7 +174,7 @@ public class DataAccessService {
 
     int updateLastName(UUID userId, String lastName) {
         String sql = "" +
-                "UPDATE user " +
+                "UPDATE users " +
                 "SET lastName = ? " +
                 "WHERE userId = ?";
         return jdbcTemplate.update(sql, lastName, userId);
@@ -185,7 +185,7 @@ public class DataAccessService {
         String sql = "" +
                 "SELECT EXISTS ( " +
                 "   SELECT 1 " +
-                "   FROM user " +
+                "   FROM users " +
                 "   WHERE userId <> ? " +
                 "    AND email = ? " +
                 ")";
@@ -198,7 +198,7 @@ public class DataAccessService {
 
     int deleteUserById(UUID userId) {
         String sql = "" +
-                "DELETE FROM user " +
+                "DELETE FROM users " +
                 "WHERE userId = ?";
         return jdbcTemplate.update(sql, userId);
     }

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="318b5c71-b648-48d1-a189-9d967777f513" name="Default Changelist" comment="Added User/stock/alarm and some AV stuff">
+    <list default="true" id="318b5c71-b648-48d1-a189-9d967777f513" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V1__CreateStudentTable.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V1__CreateStudentTable.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/amigoscode/demo/model/DataAccessService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/amigoscode/demo/model/DataAccessService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V1__CreateTables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V1__CreateTables.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +146,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582015384248</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="adapted db.migrations + delete unnecessary files">
+      <created>1582017210508</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1582017210508</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -160,7 +168,8 @@
     <MESSAGE value="improved logic" />
     <MESSAGE value="simplified alphavantage api" />
     <MESSAGE value="renamed methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="renamed methods" />
+    <MESSAGE value="adapted db.migrations + delete unnecessary files" />
+    <option name="LAST_COMMIT_MESSAGE" value="adapted db.migrations + delete unnecessary files" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -188,10 +197,10 @@
     </state>
     <state x="499" y="164" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.834@0.0.1536.834" timestamp="1581917956770" />
     <state x="624" y="206" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1581949563075" />
-    <state x="614" y="119" key="CommitChangelistDialog2" timestamp="1582015383417">
+    <state x="614" y="119" key="CommitChangelistDialog2" timestamp="1582017209608">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="614" y="119" key="CommitChangelistDialog2/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582015383417" />
+    <state x="614" y="119" key="CommitChangelistDialog2/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582017209608" />
     <state x="740" y="279" key="FileChooserDialogImpl" timestamp="1581951957848">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
