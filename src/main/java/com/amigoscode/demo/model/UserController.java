@@ -4,12 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.io.IOException;
 import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("api/users")
+@RequestMapping("api")
 public class UserController {
 
     private final UserService userService;
@@ -19,38 +18,43 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping
+    @GetMapping("/get/users/")
     public List<User> getAllUsers() {
         return userService.getAllUsers();
     }
 
-    @PostMapping
+    @GetMapping("/get/alarms/{id}")
+    public List<Alarm> getAllAlarms(@PathVariable UUID id) {
+        return userService.getAllAlarms(id);
+    }
+
+    @PostMapping(path = "/post/user", consumes = "application/json", produces = "application/json")
     public void addNewUser(@RequestBody @Valid User user) {
         userService.addNewUser(user);
     }
 
-    @PostMapping
-    public void addNewAlarm(@RequestBody @Valid Alarm alarm) throws IOException {
+    @PostMapping(path = "/post/alarm", consumes = "application/json", produces = "application/json")
+    public void addNewAlarm(@RequestBody @Valid Alarm alarm) {
         userService.addNewAlarm(alarm);
     }
 
-    @GetMapping("/{stockSymbol}")
+    @GetMapping("/get/stocks/{stockSymbol}")
     public void getStockFromSearchEndpoint(@PathVariable String stockSymbol) {
         userService.getStocksFromSearchEndpoint(stockSymbol);
     }
 
-    @PutMapping(path = "{userId}")
-    public void updateUser(@PathVariable("userId") UUID studentId,
+    @PutMapping(path = "/put/{userId}")
+    public void updateUser(@PathVariable("userId") UUID userId,
                            @RequestBody User user) {
-        userService.updateUser(studentId, user);
+        userService.updateUser(userId, user);
     }
 
-    @DeleteMapping("{userId}")
+    @DeleteMapping("/delete/user/{userId}")
     public void deleteUser(@PathVariable("userId") UUID userId) {
         userService.deleteUser(userId);
     }
 
-    @DeleteMapping("{alarmId}")
+    @DeleteMapping("/delete/alarm/{alarmId}")
     public void deleteAlarm(@PathVariable("alarmId") UUID alarmId) {
         userService.deleteAlarm(alarmId);
     }
