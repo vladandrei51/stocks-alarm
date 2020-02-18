@@ -4,11 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.io.IOException;
 import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("api/students")
+@RequestMapping("api/users")
 public class UserController {
 
     private final UserService userService;
@@ -29,10 +30,14 @@ public class UserController {
     }
 
     @PostMapping
-    public void addNewAlarm(@RequestBody @Valid Alarm alarm) {
+    public void addNewAlarm(@RequestBody @Valid Alarm alarm) throws IOException {
         userService.addNewAlarm(alarm);
     }
 
+    @GetMapping("/{stockSymbol}")
+    public void getStockFromSearchEndpoint(@PathVariable String stockSymbol) {
+        userService.getStocksFromSearchEndpoint(stockSymbol);
+    }
 
     @PutMapping(path = "{userId}")
     public void updateStudent(@PathVariable("userId") UUID studentId,

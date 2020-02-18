@@ -19,7 +19,7 @@ public class DataAccessService {
     @Autowired
     public DataAccessService(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
-        alphaVantageAPIConnector = new AlphaVantageAPIConnector(30); //ignore timeout
+        alphaVantageAPIConnector = new AlphaVantageAPIConnector();
     }
 
     List<User> selectAllUsers() {
@@ -69,11 +69,12 @@ public class DataAccessService {
         return jdbcTemplate.update(
                 sql,
                 alarmId,
+                alarm.getUserId(),
                 alarm.getStockSymbol(),
                 alarm.getTargetAlarmPercentage(),
                 alarm.getCurrentAlarmVariance(),
-                alarm.getInitialStockPrice(),
-                alarm.getCurrentStockPrice(),
+                alphaVantageAPIConnector.getStockPriceIntraDay(alarm.getStockSymbol(), 5),
+                alphaVantageAPIConnector.getStockPriceIntraDay(alarm.getStockSymbol(), 5),
                 alarm.isActive()
         );
     }
@@ -113,27 +114,15 @@ public class DataAccessService {
         };
     }
 
-    String getStockSymbolFromAlarm(UUID alarmId) {
-        String sql = "" +
-                "SELECT alarm.stockSymbol " +
-                "FROM alarm " +
-                "WHERE alarm.alarmId = ?";
-        return jdbcTemplate.queryForObject(
-                sql,
-                new Object[]{alarmId},
-                (resultSet, columnIndex) -> resultSet.getString(1)
-        );
-    }
-
-    List<Stock> getStocksFromUser(UUID userId) {
+    List<Stock> getMonitoredStocks(UUID userId) {
         List<Stock> stockList = new ArrayList<>();
-        selectAllUsersAlarms(userId).forEach(alarm -> {
-//           stockList.add() api.getStockFromSymbol(alarm.getStockSymbol)
+        selectAllAlarmsFromUser(userId).forEach(alarm -> {
+            stockList.add(new Stock(alarm.getStockSymbol()));
         });
         return null;
     }
 
-    List<Alarm> selectAllUsersAlarms(UUID userId) {
+    List<Alarm> selectAllAlarmsFromUser(UUID userId) {
         String sql = "" +
                 "SELECT " +
                 " alarm.userId, " +
@@ -219,5 +208,9 @@ public class DataAccessService {
                 "DELETE FROM alarm " +
                 "WHERE alarmId = ?";
         return jdbcTemplate.update(sql, alarmId);
+    }
+
+    public List<Stock> getStocksFromSearchEndpoint(String stockSymbol) {
+        return alphaVantageAPIConnector.getStockListFromSearch(stockSymbol);
     }
 }

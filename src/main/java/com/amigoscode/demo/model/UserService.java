@@ -28,7 +28,7 @@ public class UserService {
     }
 
     List<Alarm> getAllAlarms(UUID userId) {
-        return dataAccessService.selectAllUsersAlarms(userId);
+        return dataAccessService.selectAllAlarmsFromUser(userId);
     }
 
     void addNewUser(User user) {
@@ -90,5 +90,9 @@ public class UserService {
 
     void deleteAlarm(UUID alarmId) {
         dataAccessService.deleteAlarmById(alarmId);
+    }
+
+    void getStocksFromSearchEndpoint(String stockSymbol) {
+        dataAccessService.getStocksFromSearchEndpoint(stockSymbol);
     }
 }

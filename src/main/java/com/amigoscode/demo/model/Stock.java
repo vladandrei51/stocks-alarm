@@ -1,13 +1,15 @@
 package com.amigoscode.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.validation.constraints.NotBlank;
+import java.util.Objects;
 
 public class Stock {
 
     @NotBlank
     private final String symbol; //unique
 
-    @NotBlank
     private final String name;
 
     private final String type;
@@ -24,15 +26,20 @@ public class Stock {
 
     private final float matchScore;
 
-    public Stock(@NotBlank String symbol,
-                 @NotBlank String name,
-                 String type,
-                 String region,
-                 String marketOpen,
-                 String marketClose,
-                 String timezone,
-                 String currency,
-                 float matchScore) {
+    public Stock(String symbol) {
+        this(symbol, "", "", "", "", "", "", "", 0f);
+
+    }
+
+    public Stock(@JsonProperty("symbol") String symbol,
+                 @JsonProperty("name") String name,
+                 @JsonProperty("type") String type,
+                 @JsonProperty("region") String region,
+                 @JsonProperty("marketOpen") String marketOpen,
+                 @JsonProperty("marketClose") String marketClose,
+                 @JsonProperty("timezone") String timezone,
+                 @JsonProperty("currency") String currency,
+                 @JsonProperty("matchScore") float matchScore) {
         this.symbol = symbol;
         this.name = name;
         this.type = type;
@@ -93,5 +100,18 @@ public class Stock {
                 ", currency='" + currency + '\'' +
                 ", matchScore=" + matchScore +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Stock stock = (Stock) o;
+        return symbol.equals(stock.symbol);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(symbol);
     }
 }
