@@ -23,18 +23,25 @@ public class AlphaVantageAPIConnector {
     public AlphaVantageAPIConnector() throws ApiRequestException {
     }
 
-    public List<Stock> getStockListFromSearch(String searchKeyword) {
-        final String JSON_ARRAY_KEY = "bestMatches";
-        String url = String.format(BASE_URL + "/query?function=SYMBOL_SEARCH&keywords=%s&apikey=%s", searchKeyword, API_KEY);
+    private JSONObject getJSONFromURL(String url) {
         JSONObject jsonObject = null;
-        boolean connectedSuccessfully = false;
         try {
             jsonObject = new JSONObject(IOUtils.toString(new URL(url), StandardCharsets.UTF_8));
-            connectedSuccessfully = true;
         } catch (IOException e) {
             e.printStackTrace();
         }
-        if (connectedSuccessfully) {
+        return jsonObject;
+
+    }
+
+    public List<Stock> getStockListFromSearch(String searchKeyword) {
+        final String JSON_ARRAY_KEY = "bestMatches";
+        final String FUNCTION = "SYMBOL_SEARCH";
+        String url = String.format(BASE_URL + "/query?function=%s&keywords=%s&apikey=%s", FUNCTION, searchKeyword, API_KEY);
+
+        JSONObject jsonObject = getJSONFromURL(url);
+
+        if (jsonObject != null) {
             List<Stock> stockList = new ArrayList<>();
             JSONArray jsonArray = jsonObject.getJSONArray(JSON_ARRAY_KEY);
             for (int index = 0; index < jsonArray.length(); index++) {
@@ -62,16 +69,9 @@ public class AlphaVantageAPIConnector {
         final String FUNCTION = "TIME_SERIES_INTRADAY";
         String url = String.format(BASE_URL + "/query?function=%s&symbol=%s&interval=%s&apikey=%s", FUNCTION, stockSymbol, timeout + "min", API_KEY);
 
-        JSONObject jsonObject = null;
-        boolean connectedSuccessfully = false;
+        JSONObject jsonObject = getJSONFromURL(url);
 
-        try {
-            jsonObject = new JSONObject(IOUtils.toString(new URL(url), StandardCharsets.UTF_8));
-            connectedSuccessfully = true;
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        if (connectedSuccessfully) {
+        if (jsonObject != null) {
             String timeKey = jsonObject.keySet().stream().filter(key -> key.contains(KEY_LIKE)).findFirst().orElseGet(null);
             jsonObject = jsonObject.getJSONObject(timeKey);
 
