@@ -20,12 +20,12 @@ public class UserController {
     }
 
     @GetMapping
-    public List<User> getAllStudents() {
+    public List<User> getAllUsers() {
         return userService.getAllUsers();
     }
 
     @PostMapping
-    public void addNewStudent(@RequestBody @Valid User user) {
+    public void addNewUser(@RequestBody @Valid User user) {
         userService.addNewUser(user);
     }
 
@@ -40,13 +40,13 @@ public class UserController {
     }
 
     @PutMapping(path = "{userId}")
-    public void updateStudent(@PathVariable("userId") UUID studentId,
-                              @RequestBody User user) {
+    public void updateUser(@PathVariable("userId") UUID studentId,
+                           @RequestBody User user) {
         userService.updateUser(studentId, user);
     }
 
     @DeleteMapping("{userId}")
-    public void deleteStudent(@PathVariable("userId") UUID userId) {
+    public void deleteUser(@PathVariable("userId") UUID userId) {
         userService.deleteUser(userId);
     }
 
