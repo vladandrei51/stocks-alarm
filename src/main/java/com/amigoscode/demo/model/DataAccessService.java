@@ -149,6 +149,24 @@ public class DataAccessService {
         );
     }
 
+    public List<Alarm> selectAllAlarms() {
+        String sql = "" +
+                "SELECT " +
+                " alarm.userId, " +
+                " alarm.alarmId, " +
+                " alarm.stockSymbol, " +
+                " alarm.targetAlarmPercentage," +
+                " alarm.currentAlarmVariance," +
+                " alarm.initialStockPrice," +
+                " alarm.currentStockPrice, " +
+                " alarm.isActive " +
+                "FROM alarm ";
+        return jdbcTemplate.query(
+                sql,
+                mapAlarmFromDb()
+        );
+    }
+
     private RowMapper<Alarm> mapAlarmFromDb() {
         return (resultSet, i) ->
                 new Alarm(
@@ -163,7 +181,7 @@ public class DataAccessService {
                 );
     }
 
-    int updateAlarmActive(UUID alarmId, boolean isActive) {
+    public int updateAlarmActive(UUID alarmId, boolean isActive) {
         String sql = "" +
                 "UPDATE alarm " +
                 "SET isActive = ? " +
@@ -249,5 +267,13 @@ public class DataAccessService {
 
     public List<Stock> getStocksFromSearchEndpoint(String stockSymbol) {
         return alphaVantageAPIConnector.getStockListFromSearch(stockSymbol);
+    }
+
+    public int updateAlarmCurrentStockPrice(UUID alarmId, Float price) {
+        String sql = "" +
+                "UPDATE alarm " +
+                "SET currentStockPrice = ? " +
+                "WHERE alarmId = ?";
+        return jdbcTemplate.update(sql, price, alarmId);
     }
 }
