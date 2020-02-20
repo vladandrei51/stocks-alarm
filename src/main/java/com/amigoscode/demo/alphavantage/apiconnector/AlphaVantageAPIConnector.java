@@ -24,13 +24,11 @@ public class AlphaVantageAPIConnector {
     }
 
     private JSONObject getJSONFromURL(String url) {
-        JSONObject jsonObject = null;
         try {
-            jsonObject = new JSONObject(IOUtils.toString(new URL(url), StandardCharsets.UTF_8));
+            return new JSONObject(IOUtils.toString(new URL(url), StandardCharsets.UTF_8));
         } catch (IOException e) {
-            e.printStackTrace();
+            return null;
         }
-        return jsonObject;
 
     }
 
@@ -77,9 +75,10 @@ public class AlphaVantageAPIConnector {
 
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
             String latestDate = jsonObject.keySet().stream().max(Comparator.comparing(s -> LocalDateTime.parse(s, formatter))).get();
-            return Float.parseFloat(new JSONObject(jsonObject.getJSONObject(latestDate).toString().replaceAll("[1-5]\\. ", "")).get("open").toString());
+            String openPrice = new JSONObject(jsonObject.getJSONObject(latestDate).toString().replaceAll("[1-5]\\. ", "")).get("open").toString();
+            return Float.parseFloat(openPrice);
         }
-        return 0f;
+        return 0f; //due to API call limitations (5 calls / minute, 500 calls / day) sometimes we can't fetch data
     }
 }
 

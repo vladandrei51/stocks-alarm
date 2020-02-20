@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
 
+import java.util.UUID;
+
 @Controller
 public class AlarmsScheduler {
     private final DataAccessService dataAccessService;
@@ -20,26 +22,42 @@ public class AlarmsScheduler {
         alphaVantageAPIConnector = new AlphaVantageAPIConnector();
     }
 
+    void handleSatisfiedAlarm(UUID alarm) {
+        dataAccessService.updateAlarmActive(alarm, false); // set isActive to false
+        MailHelper mailHelper = ApplicationContextHolder.getContext().getBean(MailHelper.class);
+        mailHelper.sendEmail(); //sends mail; make sure no restrictive firewall is on
+    }
 
-    //    @Async
-    @Scheduled(fixedRate = 50000)
+    boolean isAlarmSatisfied(Alarm alarm) {
+        int target = alarm.getTargetAlarmPercentage();
+        float current = alarm.getCurrentStockPrice();
+        float initial = alarm.getInitialStockPrice();
+
+        float stockChange = (current / initial - 1) * 100;
+
+        if (target < 0 && stockChange < 0 && stockChange <= target) { //if alarm's target is met
+            return true;
+        }
+        if (target > 0 && stockChange > 0 && stockChange >= target) {
+            return true;
+        }
+        return false;
+
+    }
+
+
+    @Scheduled(fixedRate = 5000)
     void updateCurrentStockPriceOfAlarms() {
-        System.out.println("Scheduled updating of the alarms stock price started");
         dataAccessService.selectAllAlarms().stream().filter(Alarm::isActive).forEach(alarm -> {
             String stockSymbol = alarm.getStockSymbol();
-            dataAccessService.updateAlarmCurrentStockPrice(alarm.getAlarmId(), alphaVantageAPIConnector.getStockPriceIntraDay(stockSymbol, 5));
+            float actualCurrentStockPrice = alphaVantageAPIConnector.getStockPriceIntraDay(stockSymbol, 5);
+            if (actualCurrentStockPrice == 0f) { //due to API call limitations (5 calls / minute, 500 calls / day) sometimes we can't fetch data
+                return;
+            }
+            dataAccessService.updateAlarmCurrentStockPrice(alarm.getAlarmId(), actualCurrentStockPrice);
 
-            int target = alarm.getTargetAlarmPercentage();
-            float current = alarm.getCurrentStockPrice();
-            float initial = alarm.getInitialStockPrice();
-
-            System.out.println(String.format("NW target=%s, current=%s, initial=%s, calc=%s", target, current, initial, (current / initial - 1) * 100));
-
-            if (target >= (current / initial - 1) * 100) { //if alarm's target is met
-                System.out.println(String.format("W target=%s, current=%s, initial=%s, calc=%s", target, current, initial, (current / initial - 1) * 100));
-                dataAccessService.updateAlarmActive(alarm.getAlarmId(), false); // set isActive to false
-                MailHelper mailHelper = ApplicationContextHolder.getContext().getBean(MailHelper.class);
-                mailHelper.sendEmail(); //send mail
+            if (isAlarmSatisfied(alarm)) {
+                handleSatisfiedAlarm(alarm.getAlarmId());
             }
 
         });
