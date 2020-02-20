@@ -23,6 +23,11 @@ public class UserController {
         return userService.getAllUsers();
     }
 
+    @GetMapping("/get/users/{email}")
+    public User getUserByEmail(@PathVariable String email) {
+        return userService.findUserByUsername(email);
+    }
+
     @GetMapping("/get/alarm/{id}")
     public List<Alarm> getAllAlarms(@PathVariable UUID id) {
         return userService.getAllAlarms(id);

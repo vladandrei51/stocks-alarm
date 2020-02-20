@@ -4,6 +4,7 @@ import com.amigoscode.demo.alphavantage.apiconnector.AlphaVantageAPIConnector;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -14,6 +15,10 @@ public class DataAccessService {
 
     private final JdbcTemplate jdbcTemplate;
     private AlphaVantageAPIConnector alphaVantageAPIConnector;
+
+    @Autowired
+    private PasswordEncoder bCryptPasswordEncoder;
+
 
     @Autowired
     public DataAccessService(JdbcTemplate jdbcTemplate) {
@@ -65,7 +70,7 @@ public class DataAccessService {
                 user.getFirstName(),
                 user.getLastName(),
                 user.getEmail(),
-                user.getPassword()
+                bCryptPasswordEncoder.encode(user.getPassword())
         );
     }
 
@@ -275,5 +280,19 @@ public class DataAccessService {
                 "SET currentStockPrice = ? " +
                 "WHERE alarmId = ?";
         return jdbcTemplate.update(sql, price, alarmId);
+    }
+
+    public User findUserByUsername(String username) {
+        String sql = "" +
+                "SELECT " +
+                " userId, " +
+                " firstName, " +
+                " lastName, " +
+                " email, " +
+                " password " +
+                "FROM users " +
+                "WHERE email = ?";
+
+        return jdbcTemplate.queryForObject(sql, new Object[]{username}, mapUserFromDb());
     }
 }

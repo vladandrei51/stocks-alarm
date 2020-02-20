@@ -101,6 +101,10 @@ public class UserService {
         });
     }
 
+    public User findUserByUsername(String username) {
+        return dataAccessService.findUserByUsername(username);
+    }
+
     void deleteUser(UUID userId) {
         dataAccessService.deleteUserById(userId);
     }
