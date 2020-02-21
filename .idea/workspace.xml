@@ -2,17 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="318b5c71-b648-48d1-a189-9d967777f513" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/demo.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/amigoscode/demo/model/DataAccessService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/amigoscode/demo/model/DataAccessService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/amigoscode/demo/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/amigoscode/demo/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/amigoscode/demo/model/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/amigoscode/demo/model/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/amigoscode/demo/security/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/amigoscode/demo/security/SecurityConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/amigoscode/demo/view/WebController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/amigoscode/demo/view/WebController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/amigoscode/demo/ApplicationContextHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stocks/demo/ApplicationContextHolder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/amigoscode/demo/DemoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stocks/demo/DemoApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/amigoscode/demo/EmailValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stocks/demo/EmailValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/amigoscode/demo/alphavantage/apiconnector/AlphaVantageAPIConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stocks/demo/alphavantage/apiconnector/AlphaVantageAPIConnector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/amigoscode/demo/datasource/Datasource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stocks/demo/datasource/Datasource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/amigoscode/demo/emailsender/MailHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stocks/demo/emailsender/MailHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/amigoscode/demo/exception/ApiException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stocks/demo/exception/ApiException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/amigoscode/demo/exception/ApiExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stocks/demo/exception/ApiExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/amigoscode/demo/exception/ApiRequestException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stocks/demo/exception/ApiRequestException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/amigoscode/demo/model/Alarm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stocks/demo/model/Alarm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/amigoscode/demo/model/DataAccessService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stocks/demo/model/DataAccessService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/amigoscode/demo/model/Stock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stocks/demo/model/Stock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/amigoscode/demo/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stocks/demo/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/amigoscode/demo/model/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stocks/demo/model/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/amigoscode/demo/model/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stocks/demo/model/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/amigoscode/demo/scheduler/AlarmsScheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stocks/demo/scheduler/AlarmsScheduler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/amigoscode/demo/security/MyUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stocks/demo/security/MyUserDetailsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/amigoscode/demo/security/MyUserPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stocks/demo/security/MyUserPrincipal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/amigoscode/demo/security/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stocks/demo/security/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/amigoscode/demo/view/PrincipalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stocks/demo/view/PrincipalController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/amigoscode/demo/view/WebController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stocks/demo/view/WebController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/amigoscode/demo/EmailValidatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/stocks/demo/EmailValidatorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/registration.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +36,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="HTML File" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -62,6 +75,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
   <component name="RecentsManager">
@@ -235,7 +249,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582205820099</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="login+register like a boss">
+      <created>1582285700274</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1582285700274</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -260,7 +281,8 @@
     <MESSAGE value="send mail notification + schedule :)" />
     <MESSAGE value="login page" />
     <MESSAGE value="api calls limit fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="api calls limit fix" />
+    <MESSAGE value="login+register like a boss" />
+    <option name="LAST_COMMIT_MESSAGE" value="login+register like a boss" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -296,10 +318,10 @@
     </state>
     <state x="499" y="164" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.834@0.0.1536.834" timestamp="1581917956770" />
     <state x="624" y="206" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582123494259" />
-    <state x="614" y="119" key="CommitChangelistDialog2" timestamp="1582205819218">
+    <state x="614" y="119" key="CommitChangelistDialog2" timestamp="1582285699094">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="614" y="119" key="CommitChangelistDialog2/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582205819218" />
+    <state x="614" y="119" key="CommitChangelistDialog2/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582285699094" />
     <state width="432" height="466" key="DebuggerActiveHint" timestamp="1582122982924">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -308,42 +330,42 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="740" y="279" key="FileChooserDialogImpl/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1581951957848" />
-    <state width="1877" height="285" key="GridCell.Tab.0.bottom" timestamp="1582285581586">
+    <state width="1877" height="285" key="GridCell.Tab.0.bottom" timestamp="1582290313748">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="285" key="GridCell.Tab.0.bottom/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582285581586" />
-    <state width="1877" height="285" key="GridCell.Tab.0.center" timestamp="1582285581585">
+    <state width="1877" height="285" key="GridCell.Tab.0.bottom/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582290313748" />
+    <state width="1877" height="285" key="GridCell.Tab.0.center" timestamp="1582290313748">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="285" key="GridCell.Tab.0.center/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582285581585" />
-    <state width="1877" height="285" key="GridCell.Tab.0.left" timestamp="1582285581585">
+    <state width="1877" height="285" key="GridCell.Tab.0.center/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582290313748" />
+    <state width="1877" height="285" key="GridCell.Tab.0.left" timestamp="1582290313748">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="285" key="GridCell.Tab.0.left/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582285581585" />
-    <state width="1877" height="285" key="GridCell.Tab.0.right" timestamp="1582285581586">
+    <state width="1877" height="285" key="GridCell.Tab.0.left/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582290313748" />
+    <state width="1877" height="285" key="GridCell.Tab.0.right" timestamp="1582290313748">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="285" key="GridCell.Tab.0.right/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582285581586" />
-    <state width="1877" height="352" key="GridCell.Tab.1.bottom" timestamp="1582281367438">
+    <state width="1877" height="285" key="GridCell.Tab.0.right/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582290313748" />
+    <state width="1877" height="352" key="GridCell.Tab.1.bottom" timestamp="1582290249489">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="352" key="GridCell.Tab.1.bottom/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582281367438" />
-    <state width="1877" height="352" key="GridCell.Tab.1.center" timestamp="1582281367438">
+    <state width="1877" height="352" key="GridCell.Tab.1.bottom/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582290249489" />
+    <state width="1877" height="352" key="GridCell.Tab.1.center" timestamp="1582290249489">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="352" key="GridCell.Tab.1.center/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582281367438" />
-    <state width="1877" height="352" key="GridCell.Tab.1.left" timestamp="1582281367438">
+    <state width="1877" height="352" key="GridCell.Tab.1.center/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582290249489" />
+    <state width="1877" height="352" key="GridCell.Tab.1.left" timestamp="1582290249489">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="352" key="GridCell.Tab.1.left/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582281367438" />
-    <state width="1877" height="352" key="GridCell.Tab.1.right" timestamp="1582281367438">
+    <state width="1877" height="352" key="GridCell.Tab.1.left/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582290249489" />
+    <state width="1877" height="352" key="GridCell.Tab.1.right" timestamp="1582290249489">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="352" key="GridCell.Tab.1.right/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582281367438" />
-    <state x="735" y="235" key="RollbackChangesDialog" timestamp="1582108748046">
+    <state width="1877" height="352" key="GridCell.Tab.1.right/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582290249489" />
+    <state x="735" y="235" key="RollbackChangesDialog" timestamp="1582290776865">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="735" y="235" key="RollbackChangesDialog/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582108748046" />
+    <state x="735" y="235" key="RollbackChangesDialog/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582290776865" />
     <state x="525" y="166" key="SettingsEditor" timestamp="1582275310222">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -365,10 +387,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="651" y="316" key="git4idea.merge.GitPullDialog/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1581951844540" />
-    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1582121920184">
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1582289113140">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582121920184" />
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582289113140" />
     <state x="790" y="315" key="svn.repositoryBrowser" timestamp="1581951970688">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -382,12 +404,12 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/amigoscode/demo/model/DataAccessService.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/stocks/demo/model/DataAccessService.java</url>
           <line>96</line>
           <option name="timeStamp" value="38" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/amigoscode/demo/model/DataAccessService.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/stocks/demo/model/DataAccessService.java</url>
           <line>77</line>
           <option name="timeStamp" value="46" />
         </line-breakpoint>

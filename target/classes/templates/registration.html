@@ -2,27 +2,36 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="thymeleaf.org">
 <body>
 <h1>form</h1>
-<form action="/user/registration" th:object="${user}" method="POST" enctype="utf8">
-        <div>
-            <label>firstName</label>
-            <input type="text" th:field="*{firstName}" />
-        </div>
-        <div>
-            <label>lastName</label>
-            <input type="text" th:field="*{lastName}" />
-        </div>
-        <div>
-            <label>email</label>
-            <input type="text" th:field="*{email}" />
-        </div>
-        <div>
-            <label>password</label>
-            <input type="text" th:field="*{password}" />
-        </div>
-        <button type="submit">submit</button>
+<form action="/user/registration" enctype="utf8" method="POST" th:object="${user}">
+        
+    <div>
+                <label>firstName</label>
+                <input th:field="*{firstName}" type="text"/>
+            
+    </div>
+        
+    <div>
+                <label>lastName</label>
+                <input th:field="*{lastName}" type="text"/>
+            
+    </div>
+        
+    <div>
+                <label>email</label>
+                <input th:field="*{email}" type="text"/>
+            
+    </div>
+        
+    <div>
+                <label>password</label>
+                <input th:field="*{password}" type="text"/>
+            
+    </div>
+        
+    <button type="submit">submit</button>
 </form>
  
-<a th:href="@{/login.html}">login</a>
+<a th:href="@{/login.html}">Do you already have an account?</a>
 </body>
 
 </html>
