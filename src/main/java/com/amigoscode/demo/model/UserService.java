@@ -31,7 +31,7 @@ public class UserService {
         return dataAccessService.selectAllAlarmsFromUser(userId);
     }
 
-    void addNewUser(User user) {
+    public void addNewUser(User user) {
         addNewUser(null, user);
     }
 

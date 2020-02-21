@@ -3,24 +3,31 @@ package com.amigoscode.demo.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
 public class User {
 
-    private final UUID userId;
+    private UUID userId;
 
     @NotBlank
-    private final String firstName;
+    private String firstName;
 
     @NotBlank
-    private final String lastName;
+    private String lastName;
 
     @NotBlank
-    private final String email;
+    private String email;
 
-    @NotNull
-    private final String password;
+    @NotBlank
+    private String password;
+
+    public User() {
+        userId = null;
+        firstName = null;
+        lastName = null;
+        email = null;
+        password = null;
+    }
 
     public User(@JsonProperty("userId") UUID userId,
                 @JsonProperty("firstName") String firstName,
@@ -33,6 +40,7 @@ public class User {
         this.email = email;
         this.password = password;
     }
+
 
     public UUID getUserId() {
         return userId;
@@ -54,15 +62,23 @@ public class User {
         return password;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "userId=" + userId +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", password=" + password +
-                '}';
+    public void setUserId(UUID userId) {
+        this.userId = userId;
     }
 
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }

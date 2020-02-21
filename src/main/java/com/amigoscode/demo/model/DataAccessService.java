@@ -75,6 +75,7 @@ public class DataAccessService {
     }
 
     int insertAlarm(UUID alarmId, Alarm alarm) {
+        float stockCurrentPrice = alphaVantageAPIConnector.getStockPriceIntraDay(alarm.getStockSymbol(), 5);
         String sql = "" +
                 "INSERT INTO alarm (" +
                 " alarmId, " +
@@ -93,8 +94,8 @@ public class DataAccessService {
                 alarm.getStockSymbol(),
                 alarm.getTargetAlarmPercentage(),
                 1,
-                alphaVantageAPIConnector.getStockPriceIntraDay(alarm.getStockSymbol(), 5),
-                alphaVantageAPIConnector.getStockPriceIntraDay(alarm.getStockSymbol(), 5),
+                stockCurrentPrice,
+                stockCurrentPrice,
                 true
         );
     }
