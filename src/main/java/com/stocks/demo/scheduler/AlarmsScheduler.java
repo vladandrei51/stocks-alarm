@@ -10,10 +10,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
 
+import java.util.HashMap;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Function;
+import java.util.function.Predicate;
+
 @Controller
 public class AlarmsScheduler {
     private final DataAccessService dataAccessService;
     private AlphaVantageAPIConnector alphaVantageAPIConnector;
+
+    private <T> Predicate<T> DISTINCT_BY_KEY(Function<? super T, ?> keyExtractor) {
+        Set<Object> seen = ConcurrentHashMap.newKeySet();
+        return t -> seen.add(keyExtractor.apply(t));
+    }
+
 
     @Autowired
     public AlarmsScheduler(DataAccessService dataAccessService) {
@@ -49,13 +61,20 @@ public class AlarmsScheduler {
     @Scheduled(fixedRate = 1800000)
         //30 minutes
     void updateCurrentStockPriceOfAlarms() {
+        HashMap<String, Float> stockNameToPrice = new HashMap<>();
+
+        dataAccessService.selectAllAlarms().stream().filter(Alarm::isActive).filter(DISTINCT_BY_KEY(Alarm::getStockSymbol))
+                .map(Alarm::getStockSymbol)
+                .forEach(alarm -> {
+                    float actualCurrentStockPrice = alphaVantageAPIConnector.getStockPriceIntraDay(alarm, 5);
+                    if (actualCurrentStockPrice == 0f) { //due to API call limitations (5 calls / minute, 500 calls / day) sometimes we can't fetch data
+                        return;
+                    }
+                    stockNameToPrice.put(alarm, actualCurrentStockPrice);
+                });
+
         dataAccessService.selectAllAlarms().stream().filter(Alarm::isActive).forEach(alarm -> {
-            String stockSymbol = alarm.getStockSymbol();
-            float actualCurrentStockPrice = alphaVantageAPIConnector.getStockPriceIntraDay(stockSymbol, 5);
-            if (actualCurrentStockPrice == 0f) { //due to API call limitations (5 calls / minute, 500 calls / day) sometimes we can't fetch data
-                return;
-            }
-            dataAccessService.updateAlarmCurrentStockPrice(alarm.getAlarmId(), actualCurrentStockPrice);
+            dataAccessService.updateAlarmCurrentStockPrice(alarm.getAlarmId(), stockNameToPrice.get(alarm.getStockSymbol()));
             if (isAlarmSatisfied(alarm)) {
                 handleSatisfiedAlarm(alarm);
             }

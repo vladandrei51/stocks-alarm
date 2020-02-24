@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="318b5c71-b648-48d1-a189-9d967777f513" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stocks/demo/scheduler/AlarmsScheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stocks/demo/scheduler/AlarmsScheduler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -248,7 +248,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582292464878</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="refactor">
+      <created>1582292791350</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1582292791350</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -276,7 +283,8 @@
     <MESSAGE value="login+register like a boss" />
     <MESSAGE value="prepare backendv1" />
     <MESSAGE value="add file" />
-    <option name="LAST_COMMIT_MESSAGE" value="add file" />
+    <MESSAGE value="refactor" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -313,10 +321,10 @@
     </state>
     <state x="499" y="164" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.834@0.0.1536.834" timestamp="1581917956770" />
     <state x="624" y="206" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582123494259" />
-    <state x="614" y="119" key="CommitChangelistDialog2" timestamp="1582292464027">
+    <state x="614" y="119" key="CommitChangelistDialog2" timestamp="1582292790128">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="614" y="119" key="CommitChangelistDialog2/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582292464027" />
+    <state x="614" y="119" key="CommitChangelistDialog2/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582292790128" />
     <state width="432" height="466" key="DebuggerActiveHint" timestamp="1582122982924">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -325,38 +333,38 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="740" y="279" key="FileChooserDialogImpl/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1581951957848" />
-    <state width="1877" height="285" key="GridCell.Tab.0.bottom" timestamp="1582292732858">
+    <state width="1877" height="206" key="GridCell.Tab.0.bottom" timestamp="1582549013164">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="285" key="GridCell.Tab.0.bottom/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582292732858" />
-    <state width="1877" height="285" key="GridCell.Tab.0.center" timestamp="1582292732858">
+    <state width="1877" height="206" key="GridCell.Tab.0.bottom/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582549013164" />
+    <state width="1877" height="206" key="GridCell.Tab.0.center" timestamp="1582549013164">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="285" key="GridCell.Tab.0.center/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582292732858" />
-    <state width="1877" height="285" key="GridCell.Tab.0.left" timestamp="1582292732858">
+    <state width="1877" height="206" key="GridCell.Tab.0.center/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582549013164" />
+    <state width="1877" height="206" key="GridCell.Tab.0.left" timestamp="1582549013163">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="285" key="GridCell.Tab.0.left/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582292732858" />
-    <state width="1877" height="285" key="GridCell.Tab.0.right" timestamp="1582292732858">
+    <state width="1877" height="206" key="GridCell.Tab.0.left/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582549013163" />
+    <state width="1877" height="206" key="GridCell.Tab.0.right" timestamp="1582549013164">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="285" key="GridCell.Tab.0.right/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582292732858" />
-    <state width="1877" height="352" key="GridCell.Tab.1.bottom" timestamp="1582290249489">
+    <state width="1877" height="206" key="GridCell.Tab.0.right/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582549013164" />
+    <state width="1877" height="206" key="GridCell.Tab.1.bottom" timestamp="1582549013164">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="352" key="GridCell.Tab.1.bottom/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582290249489" />
-    <state width="1877" height="352" key="GridCell.Tab.1.center" timestamp="1582290249489">
+    <state width="1877" height="206" key="GridCell.Tab.1.bottom/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582549013164" />
+    <state width="1877" height="206" key="GridCell.Tab.1.center" timestamp="1582549013164">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="352" key="GridCell.Tab.1.center/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582290249489" />
-    <state width="1877" height="352" key="GridCell.Tab.1.left" timestamp="1582290249489">
+    <state width="1877" height="206" key="GridCell.Tab.1.center/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582549013164" />
+    <state width="1877" height="206" key="GridCell.Tab.1.left" timestamp="1582549013164">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="352" key="GridCell.Tab.1.left/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582290249489" />
-    <state width="1877" height="352" key="GridCell.Tab.1.right" timestamp="1582290249489">
+    <state width="1877" height="206" key="GridCell.Tab.1.left/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582549013164" />
+    <state width="1877" height="206" key="GridCell.Tab.1.right" timestamp="1582549013164">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="352" key="GridCell.Tab.1.right/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582290249489" />
+    <state width="1877" height="206" key="GridCell.Tab.1.right/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582549013164" />
     <state x="735" y="235" key="RollbackChangesDialog" timestamp="1582290776865">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -407,6 +415,16 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/stocks/demo/model/DataAccessService.java</url>
           <line>77</line>
           <option name="timeStamp" value="46" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/stocks/demo/scheduler/AlarmsScheduler.java</url>
+          <line>72</line>
+          <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/stocks/demo/scheduler/AlarmsScheduler.java</url>
+          <line>76</line>
+          <option name="timeStamp" value="50" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
