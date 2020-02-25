@@ -2,9 +2,9 @@ package com.stocks.demo.scheduler;
 
 import com.stocks.demo.ApplicationContextHolder;
 import com.stocks.demo.alphavantage.apiconnector.AlphaVantageAPIConnector;
+import com.stocks.demo.components.DataAccessService;
 import com.stocks.demo.emailsender.MailHelper;
 import com.stocks.demo.model.Alarm;
-import com.stocks.demo.model.DataAccessService;
 import com.stocks.demo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -45,6 +45,8 @@ public class AlarmsScheduler {
         float current = alarm.getCurrentStockPrice();
         float initial = alarm.getInitialStockPrice();
 
+        if (current == 0f) return false;
+
         float stockChange = (current / initial - 1) * 100;
 
         if (target < 0 && stockChange < 0 && stockChange <= target) { //if alarm's target is met
@@ -76,13 +78,15 @@ public class AlarmsScheduler {
                     stockNameToPrice.put(alarm, actualCurrentStockPrice);
                 });
 
-        dataAccessService.selectAllAlarms().stream().filter(Alarm::isActive).forEach(alarm -> {
-            dataAccessService.updateAlarmCurrentStockPrice(alarm.getAlarmId(), stockNameToPrice.get(alarm.getStockSymbol()));
-            if (isAlarmSatisfied(alarm)) {
-                handleSatisfiedAlarm(alarm);
-            }
+        dataAccessService.selectAllAlarms().stream().filter(Alarm::isActive)
+                .filter(alarm -> stockNameToPrice.containsKey(alarm.getStockSymbol()))
+                .forEach(alarm -> {
+                    dataAccessService.updateAlarmCurrentStockPrice(alarm.getAlarmId(), stockNameToPrice.get(alarm.getStockSymbol()));
+                    if (isAlarmSatisfied(alarm)) {
+                        handleSatisfiedAlarm(alarm);
+                    }
 
-        });
+                });
 
     }
 }

@@ -1,6 +1,9 @@
-package com.stocks.demo.model;
+package com.stocks.demo.components;
 
 import com.stocks.demo.alphavantage.apiconnector.AlphaVantageAPIConnector;
+import com.stocks.demo.model.Alarm;
+import com.stocks.demo.model.Stock;
+import com.stocks.demo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;

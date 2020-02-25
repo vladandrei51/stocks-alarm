@@ -1,5 +1,7 @@
-package com.stocks.demo.model;
+package com.stocks.demo.components;
 
+import com.stocks.demo.model.Alarm;
+import com.stocks.demo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

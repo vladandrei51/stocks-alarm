@@ -1,7 +1,7 @@
 package com.stocks.demo.security;
 
 import com.stocks.demo.ApplicationContextHolder;
-import com.stocks.demo.model.DataAccessService;
+import com.stocks.demo.components.DataAccessService;
 import com.stocks.demo.model.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

@@ -1,7 +1,7 @@
 package com.stocks.demo;
 
+import com.stocks.demo.components.DataAccessService;
 import com.stocks.demo.model.Alarm;
-import com.stocks.demo.model.DataAccessService;
 import com.stocks.demo.model.User;
 import com.stocks.demo.scheduler.AlarmsScheduler;
 import org.junit.Assert;
