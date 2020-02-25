@@ -63,11 +63,10 @@ public class AlarmsScheduler {
     }
 
 
-    @Scheduled(fixedRate = 1800000)
-        //30 minutes - TODO: change this via interface when frontend is implemented
+    @Scheduled(fixedRateString = "${console.fetchMetrics}", initialDelay = 1000)
+        //30 minutes
     void updateCurrentStockPriceOfAlarms() {
         HashMap<String, Float> stockNameToPrice = new HashMap<>();
-
         dataAccessService.selectAllAlarms().stream().filter(Alarm::isActive).filter(DISTINCT_BY_KEY(Alarm::getStockSymbol))
                 .map(Alarm::getStockSymbol)
                 .forEach(alarm -> {
