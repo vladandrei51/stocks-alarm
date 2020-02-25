@@ -42,7 +42,7 @@ public class DataAccessService {
 
     }
 
-    List<User> selectAllUsers() {
+    public List<User> selectAllUsers() {
         String sql = "" +
                 "SELECT " +
                 " userId, " +
@@ -55,7 +55,7 @@ public class DataAccessService {
         return jdbcTemplate.query(sql, mapUserFromDb());
     }
 
-    int insertUser(UUID userId, User user) {
+    public int insertUser(UUID userId, User user) {
         String sql = "" +
                 "INSERT INTO users (" +
                 " userId, " +
@@ -74,7 +74,7 @@ public class DataAccessService {
         );
     }
 
-    int insertAlarm(UUID alarmId, Alarm alarm) {
+    public int insertAlarm(UUID alarmId, Alarm alarm) {
         float stockCurrentPrice = alphaVantageAPIConnector.getStockPriceIntraDay(alarm.getStockSymbol(), 5);
         String sql = "" +
                 "INSERT INTO alarm (" +
@@ -217,7 +217,7 @@ public class DataAccessService {
                 alarmId);
     }
 
-    int updateEmail(UUID userId, String email) {
+    public int updateEmail(UUID userId, String email) {
         String sql = "" +
                 "UPDATE users " +
                 "SET email = ? " +
@@ -225,15 +225,15 @@ public class DataAccessService {
         return jdbcTemplate.update(sql, email, userId);
     }
 
-    int updateFirstName(UUID userId, String firstName) {
+    public int updateFirstName(UUID userId, String firstName) {
         String sql = "" +
                 "UPDATE users " +
-                "SET first_name = ? " +
+                "SET firstName = ? " +
                 "WHERE userId = ?";
         return jdbcTemplate.update(sql, firstName, userId);
     }
 
-    int updateLastName(UUID userId, String lastName) {
+    public int updateLastName(UUID userId, String lastName) {
         String sql = "" +
                 "UPDATE users " +
                 "SET lastName = ? " +
@@ -257,14 +257,21 @@ public class DataAccessService {
         );
     }
 
-    int deleteUserById(UUID userId) {
+    public int deleteUserById(UUID userId) {
         String sql = "" +
                 "DELETE FROM users " +
                 "WHERE userId = ?";
         return jdbcTemplate.update(sql, userId);
     }
 
-    int deleteAlarmById(UUID alarmId) {
+    public int deleteUserByEmail(String email) {
+        String sql = "" +
+                "DELETE FROM users " +
+                "WHERE email = ?";
+        return jdbcTemplate.update(sql, email);
+    }
+
+    public int deleteAlarmById(UUID alarmId) {
         String sql = "" +
                 "DELETE FROM alarm " +
                 "WHERE alarmId = ?";

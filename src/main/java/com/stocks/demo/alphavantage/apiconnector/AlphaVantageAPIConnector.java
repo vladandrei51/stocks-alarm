@@ -69,14 +69,16 @@ public class AlphaVantageAPIConnector {
 
         JSONObject jsonObject = getJSONFromURL(url);
 
-        if (jsonObject != null && jsonObject.keySet().stream().anyMatch(key -> key.contains(KEY_LIKE))) {
-            String timeKey = jsonObject.keySet().stream().filter(key -> key.contains(KEY_LIKE)).findFirst().get();
-            jsonObject = jsonObject.getJSONObject(timeKey);
+        if (jsonObject != null) {
+            if (jsonObject.keySet().stream().anyMatch(key -> key.contains(KEY_LIKE))) {
+                String timeKey = jsonObject.keySet().stream().filter(key -> key.contains(KEY_LIKE)).findFirst().get();
+                jsonObject = jsonObject.getJSONObject(timeKey);
 
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-            String latestDate = jsonObject.keySet().stream().max(Comparator.comparing(s -> LocalDateTime.parse(s, formatter))).get();
-            String openPrice = new JSONObject(jsonObject.getJSONObject(latestDate).toString().replaceAll("[1-5]\\. ", "")).get("open").toString();
-            return Float.parseFloat(openPrice);
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+                String latestDate = jsonObject.keySet().stream().max(Comparator.comparing(s -> LocalDateTime.parse(s, formatter))).get();
+                String openPrice = new JSONObject(jsonObject.getJSONObject(latestDate).toString().replaceAll("[1-5]\\. ", "")).get("open").toString();
+                return Float.parseFloat(openPrice);
+            }
         }
         return 0f; //due to API call limitations (5 calls / minute, 500 calls / day) sometimes we can't fetch data
     }

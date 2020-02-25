@@ -2,8 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="318b5c71-b648-48d1-a189-9d967777f513" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_vaadin_external_google_android_json_0_0_20131108_vaadin1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/demo.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stocks/demo/EmailValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stocks/demo/exception/EmailValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stocks/demo/alphavantage/apiconnector/AlphaVantageAPIConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stocks/demo/alphavantage/apiconnector/AlphaVantageAPIConnector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stocks/demo/model/DataAccessService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stocks/demo/model/DataAccessService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stocks/demo/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stocks/demo/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stocks/demo/model/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stocks/demo/model/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/stocks/demo/scheduler/AlarmsScheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stocks/demo/scheduler/AlarmsScheduler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/stocks/demo/EmailValidatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/stocks/demo/EmailValidatorTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,8 +23,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -49,7 +58,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/test/resources" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -57,23 +66,26 @@
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\xavlad\IdeaProjects\spring-boot-stocks\src\main\resources\templates" />
-    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.amigoscode.demo" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\xavlad\IdeaProjects\spring-boot-stocks\src\test\resources" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.amigoscode.demo.alphavantage" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\xavlad\IdeaProjects\spring-boot-stocks\src\main\resources\templates" />
+    </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.DemoApplication">
     <configuration name="DemoApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.stocks.demo.DemoApplication" />
       <module name="demo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.amigoscode.demo.*" />
+          <option name="PATTERN" value="com.stocks.demo.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -81,9 +93,74 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="JdbcTemplateTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.stocks.demo.exception.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.stocks.demo" />
+      <option name="MAIN_CLASS_NAME" value="com.stocks.demo.JdbcTemplateTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JdbcTemplateTest.test__CRUD__User" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.stocks.demo.exception.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.stocks.demo" />
+      <option name="MAIN_CLASS_NAME" value="com.stocks.demo.JdbcTemplateTest" />
+      <option name="METHOD_NAME" value="test__CRUD__User" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JdbcTemplateTest.test__SATISFIED_ALARM__Alarm" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.stocks.demo.exception.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.stocks.demo" />
+      <option name="MAIN_CLASS_NAME" value="com.stocks.demo.JdbcTemplateTest" />
+      <option name="METHOD_NAME" value="test__SATISFIED_ALARM__Alarm" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="com.stocks.demo in demo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.stocks.demo.exception.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.stocks.demo" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.DemoApplication" />
+        <item itemvalue="JUnit.JdbcTemplateTest (1)" />
+        <item itemvalue="JUnit.JdbcTemplateTest.test__CRUD__User" />
+        <item itemvalue="JUnit.JdbcTemplateTest.test__SATISFIED_ALARM__Alarm" />
+        <item itemvalue="JUnit.com.stocks.demo in demo" />
       </list>
     </recent_temporary>
   </component>
@@ -255,7 +332,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582292791350</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="optimize alert price fetch">
+      <created>1582550484976</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1582550484976</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -284,7 +368,8 @@
     <MESSAGE value="prepare backendv1" />
     <MESSAGE value="add file" />
     <MESSAGE value="refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor" />
+    <MESSAGE value="optimize alert price fetch" />
+    <option name="LAST_COMMIT_MESSAGE" value="optimize alert price fetch" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -321,10 +406,10 @@
     </state>
     <state x="499" y="164" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.834@0.0.1536.834" timestamp="1581917956770" />
     <state x="624" y="206" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582123494259" />
-    <state x="614" y="119" key="CommitChangelistDialog2" timestamp="1582292790128">
+    <state x="614" y="119" key="CommitChangelistDialog2" timestamp="1582550483633">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="614" y="119" key="CommitChangelistDialog2/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582292790128" />
+    <state x="614" y="119" key="CommitChangelistDialog2/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582550483633" />
     <state width="432" height="466" key="DebuggerActiveHint" timestamp="1582122982924">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -333,42 +418,51 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="740" y="279" key="FileChooserDialogImpl/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1581951957848" />
-    <state width="1877" height="206" key="GridCell.Tab.0.bottom" timestamp="1582549013164">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state width="1877" height="245" key="GridCell.Tab.0.bottom" timestamp="1582621216955">
+      <screen x="1920" y="0" width="1920" height="1050" />
     </state>
     <state width="1877" height="206" key="GridCell.Tab.0.bottom/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582549013164" />
-    <state width="1877" height="206" key="GridCell.Tab.0.center" timestamp="1582549013164">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state width="1877" height="245" key="GridCell.Tab.0.bottom/1920.0.1920.1050/0.0.1920.1050@1920.0.1920.1050" timestamp="1582621216955" />
+    <state width="1877" height="245" key="GridCell.Tab.0.center" timestamp="1582621216954">
+      <screen x="1920" y="0" width="1920" height="1050" />
     </state>
     <state width="1877" height="206" key="GridCell.Tab.0.center/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582549013164" />
-    <state width="1877" height="206" key="GridCell.Tab.0.left" timestamp="1582549013163">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state width="1877" height="245" key="GridCell.Tab.0.center/1920.0.1920.1050/0.0.1920.1050@1920.0.1920.1050" timestamp="1582621216954" />
+    <state width="1877" height="245" key="GridCell.Tab.0.left" timestamp="1582621216952">
+      <screen x="1920" y="0" width="1920" height="1050" />
     </state>
     <state width="1877" height="206" key="GridCell.Tab.0.left/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582549013163" />
-    <state width="1877" height="206" key="GridCell.Tab.0.right" timestamp="1582549013164">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state width="1877" height="245" key="GridCell.Tab.0.left/1920.0.1920.1050/0.0.1920.1050@1920.0.1920.1050" timestamp="1582621216952" />
+    <state width="1877" height="245" key="GridCell.Tab.0.right" timestamp="1582621216954">
+      <screen x="1920" y="0" width="1920" height="1050" />
     </state>
     <state width="1877" height="206" key="GridCell.Tab.0.right/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582549013164" />
-    <state width="1877" height="206" key="GridCell.Tab.1.bottom" timestamp="1582549013164">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state width="1877" height="245" key="GridCell.Tab.0.right/1920.0.1920.1050/0.0.1920.1050@1920.0.1920.1050" timestamp="1582621216954" />
+    <state width="1877" height="245" key="GridCell.Tab.1.bottom" timestamp="1582621216955">
+      <screen x="1920" y="0" width="1920" height="1050" />
     </state>
     <state width="1877" height="206" key="GridCell.Tab.1.bottom/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582549013164" />
-    <state width="1877" height="206" key="GridCell.Tab.1.center" timestamp="1582549013164">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state width="1877" height="245" key="GridCell.Tab.1.bottom/1920.0.1920.1050/0.0.1920.1050@1920.0.1920.1050" timestamp="1582621216955" />
+    <state width="1877" height="245" key="GridCell.Tab.1.center" timestamp="1582621216955">
+      <screen x="1920" y="0" width="1920" height="1050" />
     </state>
     <state width="1877" height="206" key="GridCell.Tab.1.center/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582549013164" />
-    <state width="1877" height="206" key="GridCell.Tab.1.left" timestamp="1582549013164">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state width="1877" height="245" key="GridCell.Tab.1.center/1920.0.1920.1050/0.0.1920.1050@1920.0.1920.1050" timestamp="1582621216955" />
+    <state width="1877" height="245" key="GridCell.Tab.1.left" timestamp="1582621216955">
+      <screen x="1920" y="0" width="1920" height="1050" />
     </state>
     <state width="1877" height="206" key="GridCell.Tab.1.left/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582549013164" />
-    <state width="1877" height="206" key="GridCell.Tab.1.right" timestamp="1582549013164">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state width="1877" height="245" key="GridCell.Tab.1.left/1920.0.1920.1050/0.0.1920.1050@1920.0.1920.1050" timestamp="1582621216955" />
+    <state width="1877" height="245" key="GridCell.Tab.1.right" timestamp="1582621216955">
+      <screen x="1920" y="0" width="1920" height="1050" />
     </state>
     <state width="1877" height="206" key="GridCell.Tab.1.right/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582549013164" />
-    <state x="735" y="235" key="RollbackChangesDialog" timestamp="1582290776865">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state width="1877" height="245" key="GridCell.Tab.1.right/1920.0.1920.1050/0.0.1920.1050@1920.0.1920.1050" timestamp="1582621216955" />
+    <state x="2655" y="235" key="RollbackChangesDialog" timestamp="1582620315609">
+      <screen x="1920" y="0" width="1920" height="1050" />
     </state>
     <state x="735" y="235" key="RollbackChangesDialog/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582290776865" />
+    <state x="2655" y="235" key="RollbackChangesDialog/1920.0.1920.1050/0.0.1920.1050@1920.0.1920.1050" timestamp="1582620315609" />
     <state x="525" y="166" key="SettingsEditor" timestamp="1582275310222">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -378,10 +472,11 @@
     </state>
     <state x="465" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1581917572173" />
     <state x="581" y="303" key="com.intellij.ide.util.TipDialog/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1581927165850" />
-    <state x="769" y="441" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1582191531823">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state x="2689" y="441" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1582619542706">
+      <screen x="1920" y="0" width="1920" height="1050" />
     </state>
     <state x="769" y="441" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1582191531823" />
+    <state x="2689" y="441" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1920.0.1920.1050/0.0.1920.1050@1920.0.1920.1050" timestamp="1582619542706" />
     <state x="731" y="227" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1582121286346">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -407,24 +502,42 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/stocks/demo/model/DataAccessService.java</url>
-          <line>96</line>
-          <option name="timeStamp" value="38" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/stocks/demo/scheduler/AlarmsScheduler.java</url>
+          <line>71</line>
+          <option name="timeStamp" value="53" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/stocks/demo/scheduler/AlarmsScheduler.java</url>
+          <line>79</line>
+          <option name="timeStamp" value="55" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/stocks/demo/scheduler/AlarmsScheduler.java</url>
+          <line>50</line>
+          <option name="timeStamp" value="58" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/stocks/demo/scheduler/AlarmsScheduler.java</url>
+          <line>53</line>
+          <option name="timeStamp" value="59" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/stocks/demo/scheduler/AlarmsScheduler.java</url>
+          <line>58</line>
+          <option name="timeStamp" value="60" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/stocks/demo/alphavantage/apiconnector/AlphaVantageAPIConnector.java</url>
+          <line>72</line>
+          <properties>
+            <option name="lambda-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="61" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/stocks/demo/model/DataAccessService.java</url>
           <line>77</line>
-          <option name="timeStamp" value="46" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/stocks/demo/scheduler/AlarmsScheduler.java</url>
-          <line>72</line>
-          <option name="timeStamp" value="48" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/stocks/demo/scheduler/AlarmsScheduler.java</url>
-          <line>76</line>
-          <option name="timeStamp" value="50" />
+          <option name="timeStamp" value="64" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

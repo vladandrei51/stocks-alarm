@@ -40,7 +40,7 @@ public class AlarmsScheduler {
         mailHelper.sendEmail(user.getEmail(), alarm.getStockSymbol()); //sends mail; make sure no restrictive firewall is on
     }
 
-    boolean isAlarmSatisfied(Alarm alarm) {
+    public static boolean isAlarmSatisfied(Alarm alarm) {
         int target = alarm.getTargetAlarmPercentage();
         float current = alarm.getCurrentStockPrice();
         float initial = alarm.getInitialStockPrice();
@@ -53,13 +53,16 @@ public class AlarmsScheduler {
         if (target > 0 && stockChange > 0 && stockChange >= target) {
             return true;
         }
+        if (target == 0) {
+            return true;
+        }
         return false;
 
     }
 
 
     @Scheduled(fixedRate = 1800000)
-        //30 minutes
+        //30 minutes - TODO: change this via interface when frontend is implemented
     void updateCurrentStockPriceOfAlarms() {
         HashMap<String, Float> stockNameToPrice = new HashMap<>();
 

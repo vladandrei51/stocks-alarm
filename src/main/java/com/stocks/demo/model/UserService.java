@@ -1,7 +1,7 @@
 package com.stocks.demo.model;
 
-import com.stocks.demo.EmailValidator;
 import com.stocks.demo.exception.ApiRequestException;
+import com.stocks.demo.exception.EmailValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;

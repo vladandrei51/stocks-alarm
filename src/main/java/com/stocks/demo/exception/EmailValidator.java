@@ -1,4 +1,4 @@
-package com.stocks.demo;
+package com.stocks.demo.exception;
 
 import org.springframework.stereotype.Component;
 

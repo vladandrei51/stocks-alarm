@@ -1,5 +1,6 @@
 package com.stocks.demo;
 
+import com.stocks.demo.exception.EmailValidator;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
