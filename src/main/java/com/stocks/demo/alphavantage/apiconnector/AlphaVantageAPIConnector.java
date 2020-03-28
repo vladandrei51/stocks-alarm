@@ -1,5 +1,8 @@
 package com.stocks.demo.alphavantage.apiconnector;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.stocks.demo.alphavantage.utils.APIConstants;
 import com.stocks.demo.exception.ApiRequestException;
 import com.stocks.demo.model.Stock;
 import org.apache.commons.io.IOUtils;
@@ -9,16 +12,14 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
+
+import static com.stocks.demo.alphavantage.utils.APIConstants.*;
 
 
 public class AlphaVantageAPIConnector {
-    private final String BASE_URL = "https://www.alphavantage.co";
-    private final String API_KEY = "KP6W9JRK1RJ0ETUG";
+
 
     public AlphaVantageAPIConnector() throws ApiRequestException {
     }
@@ -33,54 +34,50 @@ public class AlphaVantageAPIConnector {
     }
 
     public List<Stock> getStockListFromSearch(String searchKeyword) {
-        final String JSON_ARRAY_KEY = "bestMatches";
-        final String FUNCTION = "SYMBOL_SEARCH";
-        String url = String.format(BASE_URL + "/query?function=%s&keywords=%s&apikey=%s", FUNCTION, searchKeyword, API_KEY);
+        String url = String.format(BASE_URL + STOCK_LIST_FROM_SEARCH_SUBURL, SYMBOL_SEARCH, searchKeyword, API_KEY);
 
         JSONObject jsonObject = getJSONFromURL(url);
 
+
+        ObjectMapper objectMapper = new ObjectMapper();
+
         if (jsonObject != null) {
-            List<Stock> stockList = new ArrayList<>();
-            JSONArray jsonArray = jsonObject.getJSONArray(JSON_ARRAY_KEY);
-            for (int index = 0; index < jsonArray.length(); index++) {
-                JSONObject stockJSONObject = new JSONObject(jsonArray.getJSONObject(index).toString().replaceAll("[1-9]\\. ", ""));
-                Stock stock = new Stock(
-                        stockJSONObject.get("symbol").toString(),
-                        stockJSONObject.get("name").toString(),
-                        stockJSONObject.get("type").toString(),
-                        stockJSONObject.get("region").toString(),
-                        stockJSONObject.get("marketOpen").toString(),
-                        stockJSONObject.get("marketClose").toString(),
-                        stockJSONObject.get("timezone").toString(),
-                        stockJSONObject.get("currency").toString(),
-                        stockJSONObject.getFloat("matchScore")
-                );
-                stockList.add(stock);
+            try {
+                List<Stock> stockList = new ArrayList<>();
+                JSONArray jsonArray = jsonObject.getJSONArray(STOCK_KEYWORD_SEARCH);
+                for (int index = 0; index < jsonArray.length(); index++) {
+                    JSONObject stockJSONObject = new JSONObject(jsonArray.getJSONObject(index).toString().replaceAll("[1-9]\\. ", ""));
+                    Stock stock = objectMapper.readValue(stockJSONObject.toString(), Stock.class);
+                    stockList.add(stock);
+                }
+                return stockList;
+            } catch (IOException io) {
+                return null;
             }
-            return stockList;
         }
-        return null;
+        return null; //due to API call limitations (5 calls / minute, 500 calls / day) sometimes we can't fetch data
+
     }
 
-    public float getStockPriceIntraDay(String stockSymbol, int timeout) {
-        final String KEY_LIKE = "Time";
-        final String FUNCTION = "TIME_SERIES_INTRADAY";
-        String url = String.format(BASE_URL + "/query?function=%s&symbol=%s&interval=%s&apikey=%s", FUNCTION, stockSymbol, timeout + "min", API_KEY);
+    public double getStockPriceIntraDay(String stockSymbol) {
+
+        String url = String.format(APIConstants.BASE_URL + APIConstants.STOCK_PRICE_INTRA_DAY_SUBURL, APIConstants.TIME_SERIES_INTRADAY, stockSymbol, APIConstants.API_KEY);
 
         JSONObject jsonObject = getJSONFromURL(url);
 
-        if (jsonObject != null) {
-            if (jsonObject.keySet().stream().anyMatch(key -> key.contains(KEY_LIKE))) {
-                String timeKey = jsonObject.keySet().stream().filter(key -> key.contains(KEY_LIKE)).findFirst().get();
-                jsonObject = jsonObject.getJSONObject(timeKey);
+        ObjectMapper objectMapper = new ObjectMapper();
 
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-                String latestDate = jsonObject.keySet().stream().max(Comparator.comparing(s -> LocalDateTime.parse(s, formatter))).get();
-                String openPrice = new JSONObject(jsonObject.getJSONObject(latestDate).toString().replaceAll("[1-5]\\. ", "")).get("open").toString();
-                return Float.parseFloat(openPrice);
+        if (jsonObject != null) {
+            try {
+                JsonNode jsonNodeRoot = objectMapper.readTree(jsonObject.toString());
+                String lastRefreshed = jsonNodeRoot.get(META_DATA).get(LAST_REFRESHED).asText();
+                JsonNode price = jsonNodeRoot.get(TIME_SERIES_5_MIN).get(lastRefreshed);
+                return price.get(OPEN_PRICE).asDouble();
+            } catch (IOException e) {
+                return 0d;
             }
         }
-        return 0f; //due to API call limitations (5 calls / minute, 500 calls / day) sometimes we can't fetch data
+        return 0d; //due to API call limitations (5 calls / minute, 500 calls / day) sometimes we can't fetch data
     }
 }
 

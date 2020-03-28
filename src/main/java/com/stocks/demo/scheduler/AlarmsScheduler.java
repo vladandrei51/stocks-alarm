@@ -42,12 +42,12 @@ public class AlarmsScheduler {
 
     public static boolean isAlarmSatisfied(Alarm alarm) {
         int target = alarm.getTargetAlarmPercentage();
-        float current = alarm.getCurrentStockPrice();
-        float initial = alarm.getInitialStockPrice();
+        double current = alarm.getCurrentStockPrice();
+        double initial = alarm.getInitialStockPrice();
 
-        if (current == 0f) return false;
+        if (current == 0d || target == 0) return false;
 
-        float stockChange = (current / initial - 1) * 100;
+        double stockChange = (current / initial - 1) * 100;
 
         if (target < 0 && stockChange < 0 && stockChange <= target) { //if alarm's target is met
             return true;
@@ -66,12 +66,12 @@ public class AlarmsScheduler {
     @Scheduled(fixedRateString = "${console.fetchMetrics}", initialDelay = 1000)
         //30 minutes
     void updateCurrentStockPriceOfAlarms() {
-        HashMap<String, Float> stockNameToPrice = new HashMap<>();
+        HashMap<String, Double> stockNameToPrice = new HashMap<>();
         dataAccessService.selectAllAlarms().stream().filter(Alarm::isActive).filter(DISTINCT_BY_KEY(Alarm::getStockSymbol))
                 .map(Alarm::getStockSymbol)
                 .forEach(alarm -> {
-                    float actualCurrentStockPrice = alphaVantageAPIConnector.getStockPriceIntraDay(alarm, 5);
-                    if (actualCurrentStockPrice == 0f) { //due to API call limitations (5 calls / minute, 500 calls / day) sometimes we can't fetch data
+                    double actualCurrentStockPrice = alphaVantageAPIConnector.getStockPriceIntraDay(alarm);
+                    if (actualCurrentStockPrice == 0d) { //due to API call limitations (5 calls / minute, 500 calls / day) sometimes we can't fetch data
                         return;
                     }
                     stockNameToPrice.put(alarm, actualCurrentStockPrice);

@@ -12,8 +12,8 @@ CREATE TABLE IF NOT EXISTS alarm(
     stockSymbol VARCHAR(10) NOT NULL,
     targetAlarmPercentage INT,
     currentAlarmVariance INT,
-    initialStockPrice FLOAT,
-    currentStockPrice FLOAT,
+    initialStockPrice DOUBLE PRECISION,
+    currentStockPrice DOUBLE PRECISION,
     isActive BOOLEAN
 );
 

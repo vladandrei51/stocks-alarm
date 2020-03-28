@@ -20,9 +20,9 @@ public class Alarm {
 
     private final int currentAlarmVariance;
 
-    private final float initialStockPrice;
+    private final double initialStockPrice;
 
-    private final float currentStockPrice;
+    private final double currentStockPrice;
 
     private final boolean isActive;
 
@@ -64,11 +64,11 @@ public class Alarm {
         return currentAlarmVariance;
     }
 
-    public float getInitialStockPrice() {
+    public double getInitialStockPrice() {
         return initialStockPrice;
     }
 
-    public float getCurrentStockPrice() {
+    public double getCurrentStockPrice() {
         return currentStockPrice;
     }
 

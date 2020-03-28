@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.io.IOException;
 import java.util.List;
 import java.util.UUID;
 
@@ -46,7 +47,7 @@ public class UserController {
     }
 
     @GetMapping("/get/stocks/{stockSymbol}")
-    public void getStockFromSearchEndpoint(@PathVariable String stockSymbol) {
+    public void getStockFromSearchEndpoint(@PathVariable String stockSymbol) throws IOException {
         userService.getStocksFromSearchEndpoint(stockSymbol);
     }
 

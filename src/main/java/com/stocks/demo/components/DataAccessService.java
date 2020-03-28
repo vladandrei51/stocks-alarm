@@ -78,7 +78,7 @@ public class DataAccessService {
     }
 
     public int insertAlarm(UUID alarmId, Alarm alarm) {
-        float stockCurrentPrice = alphaVantageAPIConnector.getStockPriceIntraDay(alarm.getStockSymbol(), 5);
+        double stockCurrentPrice = alphaVantageAPIConnector.getStockPriceIntraDay(alarm.getStockSymbol());
         String sql = "" +
                 "INSERT INTO alarm (" +
                 " alarmId, " +
@@ -215,8 +215,8 @@ public class DataAccessService {
                 "WHERE alarmId = ?";
         return jdbcTemplate.update(sql,
                 stockSymbol,
-                alphaVantageAPIConnector.getStockPriceIntraDay(stockSymbol, 5),
-                alphaVantageAPIConnector.getStockPriceIntraDay(stockSymbol, 5),
+                alphaVantageAPIConnector.getStockPriceIntraDay(stockSymbol),
+                alphaVantageAPIConnector.getStockPriceIntraDay(stockSymbol),
                 alarmId);
     }
 
@@ -285,7 +285,7 @@ public class DataAccessService {
         return alphaVantageAPIConnector.getStockListFromSearch(stockSymbol);
     }
 
-    public int updateAlarmCurrentStockPrice(UUID alarmId, Float price) {
+    public int updateAlarmCurrentStockPrice(UUID alarmId, Double price) {
         String sql = "" +
                 "UPDATE alarm " +
                 "SET currentStockPrice = ? " +

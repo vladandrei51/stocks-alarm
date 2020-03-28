@@ -77,10 +77,11 @@ public class JdbcTemplateTest {
         Alarm addedAlarm = dataAccessService.selectAllAlarms().get(postInsertionCount - 1);
 
         //asserts the fact that the alarm target has benn reached;
-        Assert.assertTrue(AlarmsScheduler.isAlarmSatisfied(addedAlarm));
+        Assert.assertFalse(AlarmsScheduler.isAlarmSatisfied(addedAlarm));
 
         //cleanup
         dataAccessService.deleteAlarmById(addedAlarm.getAlarmId());
     }
+
 
 }
