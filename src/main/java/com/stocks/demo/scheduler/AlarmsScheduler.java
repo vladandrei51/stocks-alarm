@@ -11,21 +11,13 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
 
 import java.util.HashMap;
-import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.function.Function;
-import java.util.function.Predicate;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 public class AlarmsScheduler {
     private final DataAccessService dataAccessService;
-    private AlphaVantageAPIConnector alphaVantageAPIConnector;
-
-    private <T> Predicate<T> DISTINCT_BY_KEY(Function<? super T, ?> keyExtractor) {
-        Set<Object> seen = ConcurrentHashMap.newKeySet();
-        return t -> seen.add(keyExtractor.apply(t));
-    }
-
+    private final AlphaVantageAPIConnector alphaVantageAPIConnector;
 
     @Autowired
     public AlarmsScheduler(DataAccessService dataAccessService) {
@@ -55,30 +47,27 @@ public class AlarmsScheduler {
         if (target > 0 && stockChange > 0 && stockChange >= target) {
             return true;
         }
-        if (target == 0) {
-            return true;
-        }
-        return false;
+        return target == 0;
 
     }
 
 
-    @Scheduled(fixedRateString = "${console.fetchMetrics}", initialDelay = 1000)
+    @Scheduled(fixedRateString = "${console.fetchMetrics}")
         //30 minutes
     void updateCurrentStockPriceOfAlarms() {
         HashMap<String, Double> stockNameToPrice = new HashMap<>();
-        dataAccessService.selectAllAlarms().stream().filter(Alarm::isActive).filter(DISTINCT_BY_KEY(Alarm::getStockSymbol))
-                .map(Alarm::getStockSymbol)
+        List<Alarm> existingActiveAlarms = dataAccessService.selectAllAlarms().stream().filter(Alarm::isActive).collect(Collectors.toList());
+
+        existingActiveAlarms.stream().map(Alarm::getStockSymbol).distinct() // get all distinct active alarms
                 .forEach(alarm -> {
-                    double actualCurrentStockPrice = alphaVantageAPIConnector.getStockPriceIntraDay(alarm);
-                    if (actualCurrentStockPrice == 0d) { //due to API call limitations (5 calls / minute, 500 calls / day) sometimes we can't fetch data
-                        return;
+                    double currentStockPrice = alphaVantageAPIConnector.getStockPriceIntraDay(alarm);
+                    if (currentStockPrice != 0d) { //due to API call limitations (5 calls / minute, 500 calls / day) sometimes we can't fetch data
+                        stockNameToPrice.put(alarm, currentStockPrice);
                     }
-                    stockNameToPrice.put(alarm, actualCurrentStockPrice);
                 });
 
-        dataAccessService.selectAllAlarms().stream().filter(Alarm::isActive)
-                .filter(alarm -> stockNameToPrice.containsKey(alarm.getStockSymbol()))
+
+        existingActiveAlarms.stream().filter(alarm -> stockNameToPrice.containsKey(alarm.getStockSymbol()))
                 .forEach(alarm -> {
                     dataAccessService.updateAlarmCurrentStockPrice(alarm.getAlarmId(), stockNameToPrice.get(alarm.getStockSymbol()));
                     if (isAlarmSatisfied(alarm)) {

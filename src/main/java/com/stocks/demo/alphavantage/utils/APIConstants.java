@@ -14,4 +14,6 @@ public class APIConstants {
     public static final String SYMBOL_SEARCH = "SYMBOL_SEARCH";
     public static final String STOCK_KEYWORD_SEARCH = "bestMatches";
 
+    public static final String LIMIT_REACHED_NODE = "Note";
+//    public static final String LIMIT_REACHED_VALUE = "Thank you for using Alpha Vantage! Our standard API call frequency is 5 calls per minute and 500 calls per day";
 }
