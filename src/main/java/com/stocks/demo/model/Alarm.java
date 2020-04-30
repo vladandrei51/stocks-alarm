@@ -1,11 +1,13 @@
 package com.stocks.demo.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.springframework.stereotype.Component;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
+@Component
 public class Alarm {
     private final UUID alarmId;
 

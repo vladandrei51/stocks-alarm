@@ -1,10 +1,12 @@
 package com.stocks.demo.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.springframework.stereotype.Component;
 
 import javax.validation.constraints.NotBlank;
 import java.util.Objects;
 
+@Component
 public class Stock {
 
     @NotBlank

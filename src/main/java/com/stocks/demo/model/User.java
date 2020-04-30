@@ -1,11 +1,13 @@
 package com.stocks.demo.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.springframework.stereotype.Component;
 
 import javax.validation.constraints.NotBlank;
 import java.util.Objects;
 import java.util.UUID;
 
+@Component
 public class User {
 
     private UUID userId;
