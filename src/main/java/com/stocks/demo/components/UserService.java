@@ -30,7 +30,7 @@ public class UserService {
         return dataAccessService.selectAllUsers();
     }
 
-    List<Alarm> getAllAlarms(UUID userId) {
+    public List<Alarm> getAllAlarms(UUID userId) {
         return dataAccessService.selectAllAlarmsFromUser(userId);
     }
 

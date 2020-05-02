@@ -3,7 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Homepage</title>
-    <p th:text="${loggedEmail}"></p>
+    <p th:text="'Logged in user: ' + ${loggedEmail}"></p>
+
+    <br>
+
+
+    <table border="1">
+        <thead>
+        <tr>
+            <th> Stock Symbol</th>
+            <th> Stock Initial Price</th>
+            <th> Stock Current Price</th>
+            <th> Alarm Activation State</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${alarms.empty}">
+            <td colspan="4" style="text-align:center"> No alarms defined yet</td>
+        </tr>
+        <tr th:each="alarm : ${alarms}">
+            <td style="text-align:center"><span th:text="${alarm.stockSymbol}"></span></td>
+            <!--            <td style="text-align:center"><span th:text="${alarm.initialStockPrice}"></span></td>-->
+            <td style="text-align:center"><span th:text="${#strings.abbreviate(alarm.initialStockPrice,9)}"></span>
+            </td>
+            <!--            <td style="text-align:center"><span th:text="${alarm.currentStockPrice}"></span></td>-->
+            <td style="text-align:center"><span th:text="${#strings.abbreviate(alarm.currentStockPrice,9)}"></span>
+            </td>
+            <td style="text-align:center"><span th:text="${alarm.active} ? 'Active' : 'Not Active'"></span></td>
+        </tr>
+        </tbody>
+
+    </table>
+
+
 </head>
 <body>
 

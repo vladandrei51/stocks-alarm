@@ -26,6 +26,10 @@ public class WebController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String currentLoggedInUser = authentication.getName();
         model.addAttribute("loggedEmail", currentLoggedInUser);
+
+        User user = userService.findUserByEmail(currentLoggedInUser);
+        model.addAttribute("alarms", userService.getAllAlarms(user.getUserId()));
+
         return "homepage";
     }
 

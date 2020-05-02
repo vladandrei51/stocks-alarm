@@ -26,7 +26,7 @@ public class Alarm {
 
     private double currentStockPrice;
 
-    private boolean isActive;
+    private boolean active;
 
     public Alarm(@JsonProperty("alarmId") UUID alarmId,
                  @JsonProperty("userId") UUID userId,
@@ -35,7 +35,7 @@ public class Alarm {
                  @JsonProperty("currentAlarmVariance") int currentAlarmVariance,
                  @JsonProperty("initialStockPrice") float initialStockPrice,
                  @JsonProperty("currentStockPrice") float currentStockPrice,
-                 @JsonProperty("isActive") boolean isActive) {
+                 @JsonProperty("isActive") boolean active) {
         this.alarmId = alarmId;
         this.userId = userId;
         this.stockSymbol = stockSymbol;
@@ -43,7 +43,7 @@ public class Alarm {
         this.currentAlarmVariance = currentAlarmVariance;
         this.initialStockPrice = initialStockPrice;
         this.currentStockPrice = currentStockPrice;
-        this.isActive = isActive;
+        this.active = active;
     }
 
     public Alarm() {
@@ -78,6 +78,6 @@ public class Alarm {
     }
 
     public boolean isActive() {
-        return isActive;
+        return active;
     }
 }
