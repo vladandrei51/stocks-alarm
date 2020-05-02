@@ -1,9 +1,0 @@
-app:
-  datasource:
-    jdbc-url: jdbc:postgresql://localhost:5432/postgres
-    username: postgres
-    password: root
-    pool-size: 30
-
-console:
-  fetchMetrics: 1800000
