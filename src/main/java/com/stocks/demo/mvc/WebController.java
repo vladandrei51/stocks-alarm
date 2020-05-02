@@ -10,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -23,23 +22,23 @@ public class WebController {
     private UserService userService;
 
     @RequestMapping("/")
-    @ResponseBody
-    public String homePage() {
+    public String homePage(Model model) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String currentPrincipalName = authentication.getName();
-        return "That's pretty basic, " + currentPrincipalName;
+        String currentLoggedInUser = authentication.getName();
+        model.addAttribute("loggedEmail", currentLoggedInUser);
+        return "homepage";
     }
 
     @RequestMapping(value = "/user/registration", method = RequestMethod.GET)
     public String showRegistrationForm(Model model) {
         User user = new User();
-        model.addAttribute("user", user);
+        model.addAttribute("newUser", user);
         return "registration";
     }
 
     @RequestMapping(value = "/user/registration", method = RequestMethod.POST)
     public String registerUserAccount(
-            @ModelAttribute("user") @Valid User account, HttpServletRequest request) {
+            @ModelAttribute("newUser") @Valid User account, HttpServletRequest request) {
         userService.addNewUser(account);
         try {
             request.login(account.getEmail(), account.getPassword());
