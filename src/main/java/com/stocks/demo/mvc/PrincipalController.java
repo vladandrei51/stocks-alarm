@@ -1,4 +1,4 @@
-package com.stocks.demo.view;
+package com.stocks.demo.mvc;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
