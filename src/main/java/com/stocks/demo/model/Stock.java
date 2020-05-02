@@ -10,27 +10,30 @@ import java.util.Objects;
 public class Stock {
 
     @NotBlank
-    private final String symbol; //unique
+    private String symbol; //unique
 
-    private final String name;
+    private String name;
 
-    private final String type;
+    private String type;
 
-    private final String region;
+    private String region;
 
-    private final String marketOpen;
+    private String marketOpen;
 
-    private final String marketClose;
+    private String marketClose;
 
-    private final String timezone;
+    private String timezone;
 
-    private final String currency;
+    private String currency;
 
-    private final float matchScore;
+    private float matchScore;
 
     public Stock(String symbol) {
         this(symbol, "", "", "", "", "", "", "", 0f);
 
+    }
+
+    public Stock() {
     }
 
     public Stock(@JsonProperty("symbol") String symbol,

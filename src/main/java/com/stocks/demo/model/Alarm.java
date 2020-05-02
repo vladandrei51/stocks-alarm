@@ -9,24 +9,24 @@ import java.util.UUID;
 
 @Component
 public class Alarm {
-    private final UUID alarmId;
+    private UUID alarmId;
 
     @NotNull
-    private final UUID userId;
+    private UUID userId;
 
     @NotBlank
-    private final String stockSymbol; //stock identifier
+    private String stockSymbol; //stock identifier
 
     @NotNull
-    private final int targetAlarmPercentage;
+    private int targetAlarmPercentage;
 
-    private final int currentAlarmVariance;
+    private int currentAlarmVariance;
 
-    private final double initialStockPrice;
+    private double initialStockPrice;
 
-    private final double currentStockPrice;
+    private double currentStockPrice;
 
-    private final boolean isActive;
+    private boolean isActive;
 
     public Alarm(@JsonProperty("alarmId") UUID alarmId,
                  @JsonProperty("userId") UUID userId,
@@ -44,6 +44,9 @@ public class Alarm {
         this.initialStockPrice = initialStockPrice;
         this.currentStockPrice = currentStockPrice;
         this.isActive = isActive;
+    }
+
+    public Alarm() {
     }
 
     public UUID getAlarmId() {
