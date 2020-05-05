@@ -3,8 +3,6 @@ package com.stocks.demo.mvc;
 import com.stocks.demo.components.UserService;
 import com.stocks.demo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -16,33 +14,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 @Controller
-public class WebController {
+@RequestMapping("/user")
+public class WebUserController {
 
     @Autowired
     private UserService userService;
 
-    @RequestMapping("/")
-    public String homePage(Model model) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String currentLoggedInUser = authentication.getName();
-        model.addAttribute("loggedEmail", currentLoggedInUser);
 
-        User user = userService.findUserByEmail(currentLoggedInUser);
-        model.addAttribute("alarms", userService.getAllAlarms(user.getUserId()));
-
-        return "homepage";
-    }
-
-    @RequestMapping(value = "/user/registration", method = RequestMethod.GET)
+    @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String showRegistrationForm(Model model) {
-        User user = new User();
-        model.addAttribute("newUser", user);
+        model.addAttribute("user", new User());
         return "registration";
     }
 
-    @RequestMapping(value = "/user/registration", method = RequestMethod.POST)
+    @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public String registerUserAccount(
-            @ModelAttribute("newUser") @Valid User account, HttpServletRequest request) {
+            @ModelAttribute("user") @Valid User account, HttpServletRequest request) {
         userService.addNewUser(account);
         try {
             request.login(account.getEmail(), account.getPassword());
@@ -52,4 +39,5 @@ public class WebController {
             return "registration";
         }
     }
+
 }
