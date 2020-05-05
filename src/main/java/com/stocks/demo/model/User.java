@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.stereotype.Component;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -12,16 +13,16 @@ public class User {
 
     private UUID userId;
 
-    @NotBlank
+    @NotBlank(message = "first name is required")
     private String firstName;
 
-    @NotBlank
+    @NotBlank(message = "last name is required")
     private String lastName;
 
-    @NotBlank
+    @NotBlank(message = "email is required")
     private String email;
 
-    @NotBlank
+    @Size(min = 5, message = "password must be at least 5 chars long")
     private String password;
 
     public User() {

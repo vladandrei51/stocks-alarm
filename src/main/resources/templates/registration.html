@@ -3,32 +3,30 @@
 <body>
 <h1>form</h1>
 <form action="/user/registration" enctype="utf8" method="POST" th:object="${user}">
+      
+
+    <label>firstName</label>   
+    <input th:field="*{firstName}" type="text"/> <br>
+    <p class="text-danger" th:errors="*{firstName}" th:if="${#fields.hasErrors('firstName')}"></p> <br><br>
+
         
-    <div>
-                <label>firstName</label>
-                <input th:field="*{firstName}" type="text"/>
-            
-    </div>
+    <label>lastName</label>
+    <input th:field="*{lastName}" type="text"/> <br>
+    <p class="text-danger" th:errors="*{lastName}" th:if="${#fields.hasErrors('lastName')}"></p> <br><br>
+
+            
+    <label>email</label>
+    <input th:field="*{email}" type="text"/> <br>
+    <p class="text-danger" th:errors="*{email}" th:if="${#fields.hasErrors('email')}"></p> <br><br>
+
+    <label>password</label>
+    <input th:field="*{password}" type="text"/> <br>
+    <p class="text-danger" th:errors="*{password}" th:if="${#fields.hasErrors('password')}"></p> <br><br>
+
         
-    <div>
-                <label>lastName</label>
-                <input th:field="*{lastName}" type="text"/>
-            
-    </div>
-        
-    <div>
-                <label>email</label>
-                <input th:field="*{email}" type="text"/>
-            
-    </div>
-        
-    <div>
-                <label>password</label>
-                <input th:field="*{password}" type="text"/>
-            
-    </div>
         
     <button type="submit">submit</button>
+
 </form>
  
 <a th:href="@{/login.html}">Do you already have an account?</a>
