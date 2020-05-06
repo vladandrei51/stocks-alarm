@@ -24,9 +24,9 @@ public class HomepageController {
 //            return "login-form";
 
         String currentLoggedInUser = authentication.getName();
-        model.addAttribute("loggedEmail", currentLoggedInUser);
-
         User user = userService.findUserByEmail(currentLoggedInUser);
+
+        model.addAttribute("loggedFirstName", user.getFirstName());
         model.addAttribute("alarms", userService.getAllAlarms(user.getUserId()));
 
         return "homepage";
