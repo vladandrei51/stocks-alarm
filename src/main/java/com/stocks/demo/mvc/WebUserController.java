@@ -3,9 +3,12 @@ package com.stocks.demo.mvc;
 import com.stocks.demo.components.UserService;
 import com.stocks.demo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,7 +25,19 @@ public class WebUserController {
     private UserService userService;
 
 
-    @RequestMapping(value = "/registration", method = RequestMethod.GET)
+    @GetMapping(value = "/login")
+    public String userLogin(Model model) {
+        return "login-form";
+    }
+
+    @GetMapping(value = "/logout")
+    public String logout() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        authentication.setAuthenticated(false);
+        return "redirect:/";
+    }
+
+    @GetMapping(value = "/registration")
     public String showRegistrationForm(Model model) {
         model.addAttribute("user", new User());
         return "registration";

@@ -19,6 +19,10 @@ public class HomepageController {
     @RequestMapping("/")
     public String homePage(Model model) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+//        if (!authentication.isAuthenticated())     -- Not needed
+//            return "login-form";
+
         String currentLoggedInUser = authentication.getName();
         model.addAttribute("loggedEmail", currentLoggedInUser);
 

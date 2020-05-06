@@ -28,8 +28,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/user/registration").permitAll()
                 .anyRequest().authenticated()
                 .and()
-                .formLogin()
-                .permitAll();
+                .formLogin().loginPage("/user/login").loginProcessingUrl("/user/login/process").permitAll();
     }
 
     @Override
