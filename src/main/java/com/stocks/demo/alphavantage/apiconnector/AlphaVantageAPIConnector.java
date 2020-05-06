@@ -54,22 +54,19 @@ public class AlphaVantageAPIConnector {
         String url = String.format(BASE_URL + BASIC_FUNCTION_WITH_KEYWORDS, SYMBOL_SEARCH, keyword, API_KEY);
         ObjectMapper objectMapper = new ObjectMapper();
         Stock stock;
-        boolean found = false;
 
         try {
             JSONObject jsonObject = getJSONFromURL(url);
             JSONArray jsonArray = jsonObject.getJSONArray(STOCK_KEYWORD_SEARCH);
-            int index = 0;
-            while (!found || index > jsonArray.length()) {
+
+            for (int index = 0; index > jsonArray.length(); index++) {
                 JSONObject stockJSONObject = new JSONObject(jsonArray.getJSONObject(index).toString().replaceAll("[1-9]\\. ", ""));
                 stock = objectMapper.readValue(stockJSONObject.toString(), Stock.class);
                 if (stock.getSymbol().equalsIgnoreCase(keyword)) {
                     logger.info("getStockInfoFromKeyword(" + keyword + ") found stock!");
-                    found = true;
                     return stock;
 
                 }
-                index++;
             }
 
 
