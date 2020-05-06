@@ -52,7 +52,7 @@ public class AlarmsScheduler {
     }
 
 
-    @Scheduled(fixedRateString = "${console.fetchMetrics}")
+    @Scheduled(fixedRateString = "${console.fetchMetrics}", initialDelay = 0)
         //30 minutes
     void updateCurrentStockPriceOfAlarms() {
         HashMap<String, Double> stockNameToPrice = new HashMap<>();
@@ -60,7 +60,7 @@ public class AlarmsScheduler {
 
         existingActiveAlarms.stream().map(Alarm::getStockSymbol).distinct() // get all distinct active alarms
                 .forEach(alarm -> {
-                    double currentStockPrice = alphaVantageAPIConnector.getStockPriceIntraDay(alarm);
+                    double currentStockPrice = alphaVantageAPIConnector.getStockPrice(alarm);
                     if (currentStockPrice != 0d) { //due to API call limitations (5 calls / minute, 500 calls / day) sometimes we can't fetch data
                         stockNameToPrice.put(alarm, currentStockPrice);
                     }

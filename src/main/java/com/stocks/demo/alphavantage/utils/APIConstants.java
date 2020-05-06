@@ -7,9 +7,11 @@ public class APIConstants {
     public static final String OPEN_PRICE = "1. open";
     public static final String BASE_URL = "https://www.alphavantage.co";
     public static final String API_KEY = "KP6W9JRK1RJ0ETUG";
-    public static final String STOCK_LIST_FROM_SEARCH_SUBURL = "/query?function=%s&keywords=%s&apikey=%s";
-    public static final String STOCK_PRICE_INTRA_DAY_SUBURL = "/query?function=%s&symbol=%s&interval=5min&apikey=%s";
-    public static final String TIME_SERIES_INTRADAY = "TIME_SERIES_INTRADAY";
+    public static final String BASIC_FUNCTION_WITH_KEYWORDS = "/query?function=%s&keywords=%s&apikey=%s";
+    public static final String BASIC_FUNCTION_WITH_SYMBOL = "/query?function=%s&symbol=%s&apikey=%s";
+    public static final String GLOBAL_QUOTE_FUNCTION = "GLOBAL_QUOTE";
+    public static final String GLOBAL_QUOTE_KEY = "Global Quote";
+    public static final String GLOBAL_QUOTE_PRICE = "05. price";
 
     public static final String SYMBOL_SEARCH = "SYMBOL_SEARCH";
     public static final String STOCK_KEYWORD_SEARCH = "bestMatches";

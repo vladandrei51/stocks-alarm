@@ -78,7 +78,7 @@ public class DataAccessService {
     }
 
     public int insertAlarm(UUID alarmId, Alarm alarm) {
-        double stockCurrentPrice = alphaVantageAPIConnector.getStockPriceIntraDay(alarm.getStockSymbol());
+        double stockCurrentPrice = alphaVantageAPIConnector.getStockPrice(alarm.getStockSymbol());
         String sql = "" +
                 "INSERT INTO alarm (" +
                 " alarmId, " +
@@ -215,8 +215,8 @@ public class DataAccessService {
                 "WHERE alarmId = ?";
         return jdbcTemplate.update(sql,
                 stockSymbol,
-                alphaVantageAPIConnector.getStockPriceIntraDay(stockSymbol),
-                alphaVantageAPIConnector.getStockPriceIntraDay(stockSymbol),
+                alphaVantageAPIConnector.getStockPrice(stockSymbol),
+                alphaVantageAPIConnector.getStockPrice(stockSymbol),
                 alarmId);
     }
 

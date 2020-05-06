@@ -2,12 +2,16 @@ package com.stocks.demo.alphavantage.apiconnector;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.stocks.demo.DemoApplication;
 import com.stocks.demo.alphavantage.utils.APIConstants;
 import com.stocks.demo.exception.ApiRequestException;
 import com.stocks.demo.model.Stock;
 import org.apache.commons.io.IOUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.Bean;
 
 import java.io.IOException;
 import java.net.URL;
@@ -20,6 +24,7 @@ import static com.stocks.demo.alphavantage.utils.APIConstants.*;
 
 public class AlphaVantageAPIConnector {
 
+    private final Logger logger = LoggerFactory.getLogger(DemoApplication.class);
 
     public AlphaVantageAPIConnector() throws ApiRequestException {
     }
@@ -44,8 +49,40 @@ public class AlphaVantageAPIConnector {
 
     }
 
+    @Bean
+    public Stock getStockInfoFromKeyword(String keyword) {
+        String url = String.format(BASE_URL + BASIC_FUNCTION_WITH_KEYWORDS, SYMBOL_SEARCH, keyword, API_KEY);
+        ObjectMapper objectMapper = new ObjectMapper();
+        Stock stock;
+        boolean found = false;
+
+        try {
+            JSONObject jsonObject = getJSONFromURL(url);
+            JSONArray jsonArray = jsonObject.getJSONArray(STOCK_KEYWORD_SEARCH);
+            int index = 0;
+            while (!found || index > jsonArray.length()) {
+                JSONObject stockJSONObject = new JSONObject(jsonArray.getJSONObject(index).toString().replaceAll("[1-9]\\. ", ""));
+                stock = objectMapper.readValue(stockJSONObject.toString(), Stock.class);
+                if (stock.getSymbol().equalsIgnoreCase(keyword)) {
+                    logger.info("getStockInfoFromKeyword(" + keyword + ") found stock!");
+                    found = true;
+                    return stock;
+
+                }
+                index++;
+            }
+
+
+        } catch (Exception ignore) {
+        }
+
+        logger.error("getStockInfoFromKeyword(" + keyword + ") was unable to find any stocks with the given parameter!");
+        return new Stock(keyword);
+
+    }
+
     public List<Stock> getStockListFromSearch(String searchKeyword) {
-        String url = String.format(BASE_URL + STOCK_LIST_FROM_SEARCH_SUBURL, SYMBOL_SEARCH, searchKeyword, API_KEY);
+        String url = String.format(BASE_URL + BASIC_FUNCTION_WITH_KEYWORDS, SYMBOL_SEARCH, searchKeyword, API_KEY);
 
         ObjectMapper objectMapper = new ObjectMapper();
         List<Stock> stockList = new ArrayList<>();
@@ -63,9 +100,9 @@ public class AlphaVantageAPIConnector {
         }
     }
 
-    public double getStockPriceIntraDay(String stockSymbol) {
+    public double getStockPrice(String stockSymbol) {
 
-        String url = String.format(APIConstants.BASE_URL + APIConstants.STOCK_PRICE_INTRA_DAY_SUBURL, APIConstants.TIME_SERIES_INTRADAY, stockSymbol, APIConstants.API_KEY);
+        String url = String.format(APIConstants.BASE_URL + BASIC_FUNCTION_WITH_SYMBOL, GLOBAL_QUOTE_FUNCTION, stockSymbol, APIConstants.API_KEY);
 
         ObjectMapper objectMapper = new ObjectMapper();
 
@@ -74,11 +111,11 @@ public class AlphaVantageAPIConnector {
         try {
             JSONObject jsonObject = getJSONFromURL(url);
             JsonNode jsonNodeRoot = objectMapper.readTree(jsonObject.toString());
-            String lastRefreshed = jsonNodeRoot.get(META_DATA).get(LAST_REFRESHED).asText();
-            JsonNode price = jsonNodeRoot.get(TIME_SERIES_5_MIN).get(lastRefreshed);
-            stockPrice = price.get(OPEN_PRICE).asDouble();
+            stockPrice = jsonNodeRoot.get(GLOBAL_QUOTE_KEY).get(GLOBAL_QUOTE_PRICE).asDouble();
+            logger.info("getStockPrice(" + stockSymbol + ")  = " + stockPrice);
             return stockPrice;
         } catch (Exception ignored) {
+            logger.error("API not called successfully for getStockPrice(" + stockSymbol + ")");
             return 0d;
         }
     }

@@ -19,7 +19,7 @@ import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/user")
-public class WebUserController {
+public class UserMVCController {
 
     @Autowired
     private UserService userService;

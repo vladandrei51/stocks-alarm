@@ -30,7 +30,6 @@ public class Stock {
 
     public Stock(String symbol) {
         this(symbol, "", "", "", "", "", "", "", 0f);
-
     }
 
     public Stock() {
