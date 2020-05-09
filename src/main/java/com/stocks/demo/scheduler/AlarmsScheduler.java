@@ -53,7 +53,6 @@ public class AlarmsScheduler {
 
 
     @Scheduled(fixedRateString = "${console.fetchMetrics}", initialDelay = 0)
-        //30 minutes
     void updateCurrentStockPriceOfAlarms() {
         HashMap<String, Double> stockNameToPrice = new HashMap<>();
         List<Alarm> existingActiveAlarms = dataAccessService.selectAllAlarms().stream().filter(Alarm::isActive).collect(Collectors.toList());

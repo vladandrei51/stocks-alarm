@@ -6,4 +6,4 @@ app:
     pool-size: 30
 
 console:
-  fetchMetrics: 1800000
+  fetchMetrics: 600000
