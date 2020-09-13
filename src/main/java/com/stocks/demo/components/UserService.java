@@ -61,7 +61,7 @@ public class UserService {
         dataAccessService.insertAlarm(newAlarmId, alarm);
     }
 
-    void addNewAlarm(Alarm alarm) {
+    public void addNewAlarm(Alarm alarm) {
         if (!dataAccessService.isAlertAlreadyAdded(alarm.getUserId(), alarm.getStockSymbol())) {
             addNewAlarm(null, alarm);
         }

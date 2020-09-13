@@ -49,6 +49,26 @@ public class Alarm {
     public Alarm() {
     }
 
+    public void setUserId(UUID userId) {
+        this.userId = userId;
+    }
+
+    public void setStockSymbol(String stockSymbol) {
+        this.stockSymbol = stockSymbol;
+    }
+
+    public void setTargetAlarmPercentage(int targetAlarmPercentage) {
+        this.targetAlarmPercentage = targetAlarmPercentage;
+    }
+
+    public void setInitialStockPrice(double initialStockPrice) {
+        this.initialStockPrice = initialStockPrice;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
     public UUID getAlarmId() {
         return alarmId;
     }

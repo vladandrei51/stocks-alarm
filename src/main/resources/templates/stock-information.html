@@ -52,6 +52,15 @@
         </tbody>
 
     </table>
+
+    <form action="/stock/process/" enctype="utf8" method="POST" th:object="${alarm}">
+        <label>Target alarm percentage</label>   
+        <input th:field="*{targetAlarmPercentage}" type="text"/> <br>
+        <p class="text-danger" th:errors="*{targetAlarmPercentage}" th:if="${#fields.hasErrors('targetAlarmPercentage')}"></p> <br><br>
+
+        <button type="submit">submit</button>
+    </form>
+
 </div>
 
 

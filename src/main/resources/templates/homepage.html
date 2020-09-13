@@ -34,6 +34,7 @@
         <th> Stock Symbol</th>
         <th> Stock Initial Price</th>
         <th> Stock Current Price</th>
+        <th> Alarm Target </th>
         <th> Alarm Activation State</th>
     </tr>
     </thead>
@@ -46,6 +47,7 @@
                 th:text="${alarm.stockSymbol}"></span></a></td>
         <td style="text-align:center"><span th:text="${#strings.abbreviate(alarm.initialStockPrice,9)}"></span></td>
         <td style="text-align:center"><span th:text="${#strings.abbreviate(alarm.currentStockPrice,9)}"></span></td>
+        <td style="text-align:center"><span th:text="${alarm.targetAlarmPercentage}"></span></a></td>
         <td style="text-align:center"><span th:text="${alarm.active} ? 'Active' : 'Not Active'"></span></td>
     </tr>
     </tbody>

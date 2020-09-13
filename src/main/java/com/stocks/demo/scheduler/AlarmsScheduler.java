@@ -39,16 +39,11 @@ public class AlarmsScheduler {
 
         if (current == 0d || target == 0) return false;
 
-        double stockChange = (current / initial - 1) * 100;
+        double stockChange = Math.abs(current-initial)/((current+initial)/2);
 
-        if (target < 0 && stockChange < 0 && stockChange <= target) { //if alarm's target is met
+        if (target > 0 && stockChange >= target)
             return true;
-        }
-        if (target > 0 && stockChange > 0 && stockChange >= target) {
-            return true;
-        }
-        return target == 0;
-
+        return target < 0 && stockChange <= target;
     }
 
 
